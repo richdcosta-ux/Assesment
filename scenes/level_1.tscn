@@ -1,16 +1,23 @@
-[gd_scene format=3 uid="uid://cjibp7dvvq5t1"]
+[gd_scene format=4 uid="uid://cjibp7dvvq5t1"]
 
 [ext_resource type="Texture2D" uid="uid://bjlw6dt4u556q" path="res://assets/mossy area/Mossy - TileSet.png" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="2_bswci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
-texture_region_size = Vector2i(256, 256)
+texture_region_size = Vector2i(512, 512)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -144.55792, 256, -138.99802, 256, 256, -256, 256)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100.07855, -133.43811, 256, -150.11786, 256, 256, -127.87814, 256)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-169.47517, -163.19833, 172.61362, -166.33676, 169.47519, 256, -172.61359, 256)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -144.55792, 150.11786, -127.878174, 166.7976, 256, -256, 256)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125.53717, -53.353302, 134.95245, -53.353302, 131.81403, 122.39874, -131.81403, 125.53717)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125.53717, -53.353302, 65.90701, -56.49173, 65.90701, 122.39874, -131.81403, 125.53717)
 5:1/0 = 0
 5:2/0 = 0
 5:3/0 = 0
@@ -25,28 +32,40 @@ texture_region_size = Vector2i(256, 256)
 1:5/0 = 0
 0:4/0 = 0
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(61.15912, -127.878174, 161.23767, -177.91745, 256, -150.11786, 256, 133.43805, 111.198425, 100.07855, 50.039307, -11.119873)
 0:5/0 = 0
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -144.55792, 256, -150.11786, 256, 144.55792, -256, 138.99799)
 1:2/0 = 0
 1:1/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-175.75203, -256, 256, -256, 256, 256, -153.78302, 256)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-175.75203, -256, 256, -256, 256, 144.36774, -72.18387, 125.53717)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 144.55792, -256, 161.23767, 256, -256, 256)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-175.75203, -256, 188.30576, -256, 169.47519, 256, -172.61359, 256)
 4:1/0 = 0
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-175.75203, -256, 188.30576, -256, 112.98346, 103.568146, -103.56816, 100.42972)
 2:2/0 = 0
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -144.55792, 256, -150.11786, 256, 144.55792, -256, 138.99799)
 3:3/0 = 0
 4:3/0 = 0
 4:2/0 = 0
 3:4/0 = 0
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-56, -66.5, 128, -81.5, 125, 126.5, -77, 131.5)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128.6756, -122.39874, 56.49173, -62.768585, 78.460724, 122.39874, -131.81403, 125.53717)
 7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128.6756, -122.39874, 72.18387, -128.6756, 69.04544, 138.09088, -131.81403, 125.53717)
 7:2/0 = 0
 6:2/0 = 0
 6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-72.18387, -119.260315, 129.32396, -131.09552, 125, 126.5, -67.31932, 138.18178)
 6:3/0 = 0
 7:4/0 = 0
 7:3/0 = 0
@@ -158,13 +177,19 @@ texture_region_size = Vector2i(256, 256)
 8:10/0 = 0
 9:10/0 = 0
 10:10/0 = 0
+5:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rus8k"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bswci")
 
 [node name="level1" type="Node2D" unique_id=1061009512]
-scale = Vector2(0.2, 0.2)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1529662245]
-tile_map_data = PackedByteArray(0, 0, 14, 0, 31, 0, 0, 0, 1, 0, 0, 0, 0, 0, 30, 0, 31, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+scale = Vector2(0.12, 0.12)
+tile_map_data = PackedByteArray("AAAAAAoAAAAAAAAAAAABAAoAAAABAAAAAAACAAoAAAABAAAAAAADAAoAAAACAAAAAAAFAAoAAAADAAEAAAAFAAkAAAADAAAAAAAHAAoAAAAAAAMAAAAIAAoAAAABAAMAAAAJAAoAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_rus8k")
+
+[node name="player" parent="." unique_id=1766685512 instance=ExtResource("2_bswci")]
+position = Vector2(48, 540)
