@@ -249,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2v6jp")
 }],
-"loop": true,
+"loop": false,
 "name": &"slash",
 "speed": 11.0
 }]
@@ -270,7 +270,7 @@ script = ExtResource("1_r66lb")
 [node name="player_animation" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=330451765]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jxos")
-animation = &"idle"
+animation = &"slash"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=421089150]
