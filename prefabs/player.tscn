@@ -570,6 +570,7 @@ shape = SubResource("RectangleShape2D_1txc5")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1200753449]
+limit_bottom = 840
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
