@@ -546,6 +546,7 @@ height = 32.0
 size = Vector2(18, 28.5)
 
 [node name="player" type="Node2D" unique_id=1766685512]
+z_index = -1
 scale = Vector2(2, 2)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=253842989]
