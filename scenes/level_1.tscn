@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bqtrf40kshbtv" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="4_1s4pk"]
 [ext_resource type="Texture2D" uid="uid://cl3hbf62aqadd" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0007_Lights.png" id="5_x2xxo"]
 [ext_resource type="Texture2D" uid="uid://deh8y6sngum3o" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="6_2cbcq"]
-[ext_resource type="Texture2D" uid="uid://dp5sefct1vt8b" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0005_5.png" id="7_isj1j"]
 [ext_resource type="Texture2D" uid="uid://ch3q01y8fnxkl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="8_so66j"]
 [ext_resource type="Texture2D" uid="uid://c0ege08nyd15k" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="9_tr1x6"]
 [ext_resource type="Texture2D" uid="uid://b0fdvn8nmoxfl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="10_d5akn"]
@@ -188,18 +187,22 @@ tile_size = Vector2i(512, 512)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bswci")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2aecg"]
+load_path = "res://.godot/imported/Layer_0005_5.png-1f9ea134df70c63feab0fe640e8ab7da.ctex"
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5xbjy"]
 distance = -1149.0
 
 [node name="level1" type="Node2D" unique_id=1061009512]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1529662245]
-scale = Vector2(0.12, 0.12)
-tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAABAAAAAAADAAkAAAACAAAAAAAFAAkAAAADAAEAAAAFAAgAAAADAAAAAAAHAAkAAAAAAAMAAAAIAAkAAAABAAMAAAAJAAkAAAACAAMAAAAAAAoAAAAAAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAACAAEAAAAFAAoAAAADAAEAAAAFAAsAAAADAAIAAAABAAsAAAABAAEAAAABAAwAAAABAAEAAAABAA0AAAABAAEAAAACAA0AAAABAAEAAAACAAwAAAABAAEAAAACAAsAAAABAAEAAAAAAAsAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAA0AAAAAAAEAAAADAAsAAAACAAEAAAADAAwAAAACAAEAAAADAA0AAAACAAEAAAAAAA4AAAAAAAIAAAADAA4AAAACAAIAAAABAA4AAAABAAIAAAACAA4AAAABAAIAAAACAAkAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_rus8k")
-
 [node name="player" parent="." unique_id=1766685512 instance=ExtResource("2_bswci")]
-position = Vector2(56, 363)
+position = Vector2(457, 495)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1529662245]
+position = Vector2(0, 5.9999995)
+scale = Vector2(0.12, 0.12)
+tile_map_data = PackedByteArray("AAABAAsAAAABAAEAAAABAAwAAAABAAEAAAABAA0AAAABAAEAAAACAA0AAAABAAIAAAACAAwAAAABAAEAAAACAAsAAAABAAEAAAAAAA4AAAAAAAIAAAABAA4AAAABAAIAAAACAA4AAAABAAIAAAABAAoAAAABAAAAAAADAAoAAAABAAAAAAADAAsAAAABAAEAAAADAAwAAAABAAEAAAAEAAoAAAABAAAAAAAEAAsAAAABAAEAAAAEAAwAAAABAAEAAAAFAAoAAAABAAAAAAAFAAsAAAABAAEAAAAFAAwAAAABAAEAAAAGAAoAAAABAAAAAAAGAAsAAAABAAEAAAAGAAwAAAABAAEAAAAHAAoAAAABAAAAAAAHAAsAAAABAAEAAAAHAAwAAAABAAEAAAAIAAoAAAABAAAAAAAIAAsAAAABAAEAAAAIAAwAAAABAAEAAAAJAAoAAAABAAAAAAAJAAsAAAABAAEAAAAJAAwAAAABAAEAAAAKAAoAAAABAAAAAAAKAAsAAAABAAEAAAAKAAwAAAABAAEAAAALAAoAAAABAAAAAAALAAsAAAABAAEAAAALAAwAAAABAAEAAAAMAAoAAAABAAAAAAAMAAsAAAABAAEAAAAMAAwAAAABAAEAAAANAAoAAAABAAAAAAANAAsAAAABAAEAAAANAAwAAAABAAEAAAAOAAoAAAABAAAAAAAOAAsAAAABAAEAAAAOAAwAAAABAAEAAAAPAAoAAAABAAAAAAAPAAsAAAABAAEAAAAPAAwAAAABAAEAAAAQAAoAAAABAAAAAAAQAAsAAAABAAEAAAAQAAwAAAABAAEAAAARAAoAAAABAAAAAAARAAsAAAABAAEAAAARAAwAAAABAAEAAAASAAoAAAABAAAAAAASAAsAAAABAAEAAAASAAwAAAABAAEAAAATAAoAAAABAAAAAAATAAsAAAABAAEAAAATAAwAAAABAAEAAAAUAAoAAAABAAAAAAAUAAsAAAABAAEAAAAUAAwAAAABAAEAAAAVAAoAAAABAAAAAAAVAAsAAAABAAEAAAAVAAwAAAABAAEAAAAWAAoAAAABAAAAAAAWAAsAAAABAAEAAAAWAAwAAAABAAEAAAAXAAoAAAABAAAAAAAXAAsAAAABAAEAAAAXAAwAAAABAAEAAAAYAAoAAAABAAAAAAAYAAsAAAABAAEAAAAYAAwAAAABAAEAAAAZAAoAAAABAAAAAAAZAAsAAAABAAEAAAAZAAwAAAABAAEAAAAaAAoAAAABAAAAAAAaAAsAAAABAAEAAAAaAAwAAAABAAEAAAADAA0AAAABAAIAAAAEAA0AAAABAAIAAAAFAA0AAAABAAIAAAAGAA0AAAABAAIAAAAHAA0AAAABAAIAAAAIAA0AAAABAAIAAAAJAA0AAAABAAIAAAAKAA0AAAABAAIAAAALAA0AAAABAAIAAAAMAA0AAAABAAIAAAANAA0AAAABAAIAAAAOAA0AAAABAAIAAAAPAA0AAAABAAIAAAAQAA0AAAABAAIAAAARAA0AAAABAAIAAAASAA0AAAABAAIAAAATAA0AAAABAAIAAAAUAA0AAAABAAIAAAAVAA0AAAABAAIAAAAWAA0AAAABAAIAAAAXAA0AAAABAAIAAAAYAA0AAAABAAIAAAAZAA0AAAABAAIAAAAaAA0AAAACAAIAAAACAAoAAAABAAAAAAD//woAAAABAAAAAAD//wsAAAABAAEAAAD//wwAAAABAAEAAAD//w0AAAABAAEAAAAAAAoAAAABAAAAAAAAAAsAAAABAAEAAAAAAAwAAAABAAEAAAAAAA0AAAABAAIAAAD9/woAAAABAAAAAAD9/wsAAAABAAEAAAD9/wwAAAABAAEAAAD9/w0AAAABAAEAAAD+/woAAAABAAAAAAD+/wsAAAABAAEAAAD+/wwAAAABAAEAAAD+/w0AAAABAAIAAAD7/woAAAABAAAAAAD7/wsAAAABAAEAAAD7/wwAAAABAAEAAAD7/w0AAAABAAEAAAD8/woAAAABAAAAAAD8/wsAAAABAAEAAAD8/wwAAAABAAEAAAD8/w0AAAABAAIAAAD6/wsAAAAAAAEAAAD6/wwAAAAAAAEAAAD6/w0AAAAAAAIAAAD6/woAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rus8k")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1803698305]
 scale = Vector2(1.2, 1.2)
@@ -232,6 +235,7 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1017002818]
+position = Vector2(-2.1192762e-05, -69.44444)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_7nomh")
 
@@ -242,6 +246,7 @@ motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=157362444]
+position = Vector2(0, -88.888885)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_1s4pk")
 
@@ -259,9 +264,10 @@ texture = ExtResource("5_x2xxo")
 position = Vector2(382.5, 227.5)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(930, 0)
+motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=490369761]
+position = Vector2(0, -54.166664)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("6_2cbcq")
 
@@ -269,19 +275,21 @@ texture = ExtResource("6_2cbcq")
 position = Vector2(382.5, 227.5)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.7, 0.7)
-motion_mirroring = Vector2(930, 0)
+motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7" unique_id=456397253]
+position = Vector2(0, -46.527775)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("7_isj1j")
+texture = SubResource("CompressedTexture2D_2aecg")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2004376682]
 position = Vector2(382.5, 227.5)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(930, 0)
+motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8" unique_id=293458095]
+position = Vector2(0, -30.555553)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_so66j")
 
@@ -289,7 +297,7 @@ texture = ExtResource("8_so66j")
 position = Vector2(382.5, 227.5)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.9, 0.9)
-motion_mirroring = Vector2(930, 0)
+motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9" unique_id=1924300094]
 position = Vector2(4.8610897, -11.805555)
@@ -300,18 +308,9 @@ texture = ExtResource("9_tr1x6")
 position = Vector2(382.5, 227.5)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(930, 0)
+motion_mirroring = Vector2(928, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10" unique_id=1519678595]
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("10_d5akn")
-
-[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground" unique_id=633850167]
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(930, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer11" unique_id=1792485698]
-position = Vector2(286.6667, 194.16669)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_d5akn")
 

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player_animation = $player_animation
+@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 var basicattack = false;
 
 var movement = Vector2();
@@ -55,7 +56,16 @@ func _physics_process(delta: float) -> void:
 		dash_start_position = position.x
 		dash_direction = direction
 		dash_timer = dash_cooldown
-		
+		var target_position: Vector2
+		$ShapeCast2D.target_position = dash_direction * dash_distance
+		$ShapeCast2D.force_shapecast_update()
+	if shape_cast.is_colliding():
+		var safe_fraction = shape_cast.get_closest_collision_safe_fraction()
+			target_position = global_position + (dash_direction * dash_distance * safe_fraction)
+		else:
+		# Path is completely clear
+			target_position = global_position + (dash_direction * dash_distance)
+
 	#perfoms atual dash
 	if is_dashing:
 		var current_distance = abs(position.x - dash_start_position)
