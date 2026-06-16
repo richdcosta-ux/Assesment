@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cyl0qfynnef0w"]
 
+[ext_resource type="Script" uid="uid://xoy7do13wvty" path="res://scripts/enemy.gd" id="1_aivmq"]
 [ext_resource type="Texture2D" uid="uid://1qgvcu2037ia" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Attack.png" id="1_cypye"]
 [ext_resource type="Texture2D" uid="uid://dp28j2gwjkiym" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Death.png" id="2_a7d0n"]
 [ext_resource type="Texture2D" uid="uid://fvsj12crh5dq" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="3_aivmq"]
+[ext_resource type="Texture2D" uid="uid://dc6836h2afy8c" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Take Hit.png" id="4_a7d0n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnk7q"]
 atlas = ExtResource("1_cypye")
@@ -66,6 +68,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rg3v"]
 atlas = ExtResource("3_aivmq")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aivmq"]
+atlas = ExtResource("4_a7d0n")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfq72"]
+atlas = ExtResource("4_a7d0n")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pfhn"]
+atlas = ExtResource("4_a7d0n")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvcau"]
+atlas = ExtResource("4_a7d0n")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfq72"]
@@ -133,15 +151,50 @@ animations = [{
 "name": &"idle",
 "speed": 6.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aivmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfq72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pfhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvcau")
+}],
 "loop": true,
 "name": &"take_hit",
-"speed": 5.0
+"speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw4a3"]
+radius = 68.0294
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4vfc"]
+height = 34.0
+
 [node name="enemy" type="CharacterBody2D" unique_id=44170523]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_aivmq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1193650469]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cfq72")
-animation = &"take_hit"
+animation = &"idle"
+frame_progress = 0.553204
+
+[node name="detection_area" type="Area2D" parent="." unique_id=398107378]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=823502868]
+position = Vector2(1, 10)
+shape = SubResource("CircleShape2D_sw4a3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261206447]
+position = Vector2(1, 10)
+shape = SubResource("CapsuleShape2D_r4vfc")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

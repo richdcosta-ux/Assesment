@@ -12,9 +12,11 @@ var movement = Vector2();
 @export var jump_force = -400.0
 @export_range(0, 1) var decelerate_on_jump_release = 0.5
 @export var dash_speed = 400.0
-@export var dash__max_distance = 100.0
+@export var dash_max_distance = 100.0
 @export var dash_curve : Curve
 @export var dash_cooldown = 1.0
+
+
 
 var is_dashing = false
 var dash_start_position = 0
@@ -49,30 +51,47 @@ func _physics_process(delta: float) -> void:
 	else:
 		$player_animation.play("idle")
 		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
-	
-	#dash activation
+
+
 	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
+		start_dash()
+	if is_dashing:
+		pass
+	else:
+		pass
+
+func start_dash() -> void:
+	#dash activation
 		is_dashing = true
 		dash_start_position = position.x
 		dash_direction = direction
 		dash_timer = dash_cooldown
-		var target_position: Vector2
-		$ShapeCast2D.target_position = dash_direction * dash_distance
+		$ShapeCast2D.target_position = dash_direction * dash_max_distance
 		$ShapeCast2D.force_shapecast_update()
-	if shape_cast.is_colliding():
-		var safe_fraction = shape_cast.get_closest_collision_safe_fraction()
-			target_position = global_position + (dash_direction * dash_distance * safe_fraction)
+		var target_position: Vector2
+		if $ShapeCast2D.is_colliding():
+			var safe_fraction = $ShapeCast2D.get_closest_collision_safe_fraction()
+			target_position = global_position + (dash_direction * dash_max_distance * safe_fraction)
 		else:
 		# Path is completely clear
-			target_position = global_position + (dash_direction * dash_distance)
-
+			target_position = global_position + (dash_direction * dash_max_distance)
+		set_collision_layer_value(1, false) # Adjust to your collision mask
+		var tween = create_tween()
+		tween.tween_property(self, "global_position", target_position, dash_max_distance / dash_speed)
+		tween.tween_callback(end_dash)
+	
+func end_dash(delta : float) -> void:
+	is_dashing = false
+	set_collision_layer_value(1, true)
+	
+	
 	#perfoms atual dash
 	if is_dashing:
 		var current_distance = abs(position.x - dash_start_position)
-		if current_distance >= dash__max_distance:
+		if current_distance >= dash_max_distance:
 			is_dashing = false
 		else:
-			velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash__max_distance)
+			velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
 			velocity.y = 0
 			$player_animation.play("dash")
 	# Reducing the dash timer
