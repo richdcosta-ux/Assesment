@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://6xbw1bdv5rt6"]
+
+[ext_resource type="Texture2D" uid="uid://dtdb2p8mybmdi" path="res://icon.svg" id="1_ejsrp"]
+[ext_resource type="Script" uid="uid://buuhnlvf4gq28" path="res://scripts/james.gd" id="1_xbber"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbber"]
+size = Vector2(70, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0hwd"]
+
+[node name="James" type="CharacterBody2D" unique_id=440055073]
+script = ExtResource("1_xbber")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=822435235]
+position = Vector2(2.999998, -1.9073486e-06)
+scale = Vector2(0.6171875, 0.6171875)
+texture = ExtResource("1_ejsrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699351003]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_xbber")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=83779783]
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=946071660]
+position = Vector2(3, -2)
+scale = Vector2(3.6400006, 3.52)
+shape = SubResource("RectangleShape2D_q0hwd")
+target_position = Vector2(50, 0)

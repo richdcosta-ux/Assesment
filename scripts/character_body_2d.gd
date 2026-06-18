@@ -2,22 +2,21 @@ extends CharacterBody2D
 
 @onready var player_animation = $player_animation
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
-var basicattack = false;
 
-var movement = Vector2();
 @export var walk_speed = 150.0
 @export var run_speed = 250.0
-@export_range(0, 1) var acceleration = 0.2
-@export_range(0, 1) var deceleration = 0.2
 @export var jump_force = -400.0
-@export_range(0, 1) var decelerate_on_jump_release = 0.5
 @export var dash_speed = 400.0
 @export var dash_max_distance = 100.0
 @export var dash_curve : Curve
 @export var dash_cooldown = 1.0
 
+@export_range(0, 1) var acceleration = 0.2
+@export_range(0, 1) var deceleration = 0.2
+@export_range(0, 1) var decelerate_on_jump_release = 0.5
 
-
+var basicattack = false;
+var movement = Vector2();
 var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
@@ -47,20 +46,20 @@ func _physics_process(delta: float) -> void:
 		
 	var direction := Input.get_axis("left", "right")
 	if direction  && basicattack == false:
-		velocity.x = move_toward(velocity.x, direction * speed, speed * acceleration)
+		velocity.x = direction * speed
 	else:
 		$player_animation.play("idle")
-		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
-
+		velocity.x = move_toward(velocity.x, 0, speed)
+	move_and_slide()
 
 	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
-		start_dash()
+		start_dash(direction)
 	if is_dashing:
 		pass
 	else:
 		pass
 
-func start_dash() -> void:
+func start_dash(direction) -> void:
 	#dash activation
 		is_dashing = true
 		dash_start_position = position.x

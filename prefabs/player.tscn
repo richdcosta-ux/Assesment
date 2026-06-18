@@ -554,16 +554,7 @@ scale = Vector2(2, 2)
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=253842989]
 collision_layer = 3
 script = ExtResource("1_r66lb")
-walk_speed = null
-run_speed = null
-acceleration = null
-deceleration = null
-jump_force = null
-decelerate_on_jump_release = null
-dash_speed = null
-dash_max_distance = null
 dash_curve = SubResource("Curve_ht1c8")
-dash_cooldown = null
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="CharacterBody2D" unique_id=1775123774]
 position = Vector2(-2, 9)

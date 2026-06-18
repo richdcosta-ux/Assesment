@@ -196,7 +196,7 @@ distance = -1149.0
 [node name="level1" type="Node2D" unique_id=1061009512]
 
 [node name="player" parent="." unique_id=1766685512 instance=ExtResource("2_bswci")]
-position = Vector2(457, 495)
+position = Vector2(-97, 534)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1529662245]
 position = Vector2(0, 5.9999995)
@@ -205,6 +205,7 @@ tile_map_data = PackedByteArray("AAABAAsAAAABAAEAAAABAAwAAAABAAEAAAABAA0AAAABAAE
 tile_set = SubResource("TileSet_rus8k")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1803698305]
+visible = false
 scale = Vector2(1.2, 1.2)
 transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 
@@ -316,6 +317,7 @@ texture = ExtResource("10_d5akn")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=231220809]
 layer = 1
+visible = false
 scale = Vector2(1.2, 1.2)
 transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 
