@@ -22,6 +22,7 @@ window/main_scene="uid://cip853hq7a7i7"
 [global_group]
 
 sword=""
+player=""
 
 [input]
 
