@@ -23,12 +23,16 @@ var dash_direction = 0
 var dash_timer = 0
 
 func _physics_process(delta: float) -> void:
+	if dash_timer > 0: 
+		dash_timer -= delta
+	if is_dashing:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() && basicattack == false:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not basicattack:
 		velocity.y = jump_force
 		
 	if Input.is_action_just_released("jump"):
@@ -38,81 +42,70 @@ func _physics_process(delta: float) -> void:
 	var speed 
 	if Input.is_action_pressed("sprint"):
 		speed = run_speed
-		$player_animation.play("run")
+		
 	else:
 		speed = walk_speed
-		$player_animation.play("walk")
+		
 		
 		
 	var direction := Input.get_axis("left", "right")
-	if direction  && basicattack == false:
+	if direction != 0 and not basicattack:
 		velocity.x = direction * speed
 	else:
-		$player_animation.play("idle")
 		velocity.x = move_toward(velocity.x, 0, speed)
+		
 	move_and_slide()
-
-	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
-		start_dash(direction)
-	if is_dashing:
+	if basicattack:
 		pass
 	else:
-		pass
-
+		if direction != 0:
+			$player_animation.play("run" if speed == run_speed else "walk")
+		else:
+			$player_animation.play("idle")
+		
+	$player_animation.flip_h = velocity.x < 0
+	
+	if Input.is_action_just_pressed("dash") and direction != 0 and dash_timer <= 0:
+		start_dash(direction)
+	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing:
+		player_attack()
+	
 func start_dash(direction) -> void:
 	#dash activation
 		is_dashing = true
-		dash_start_position = position.x
-		dash_direction = direction
 		dash_timer = dash_cooldown
-		$ShapeCast2D.target_position = dash_direction * dash_max_distance
+		$ShapeCast2D.target_position = Vector2(direction * dash_max_distance, 0)
 		$ShapeCast2D.force_shapecast_update()
+		
 		var target_position: Vector2
 		if $ShapeCast2D.is_colliding():
 			var safe_fraction = $ShapeCast2D.get_closest_collision_safe_fraction()
-			target_position = global_position + (dash_direction * dash_max_distance * safe_fraction)
+			target_position = global_position + Vector2(direction * dash_max_distance * safe_fraction, 0)
 		else:
 		# Path is completely clear
-			target_position = global_position + (dash_direction * dash_max_distance)
+			target_position = global_position + Vector2(direction * dash_max_distance, 0)
+			
 		set_collision_layer_value(1, false) # Adjust to your collision mask
+		$player_animation.play("dash")
+		
 		var tween = create_tween()
-		tween.tween_property(self, "global_position", target_position, dash_max_distance / dash_speed)
+		var actual_distance = global_position.distance_to(target_position)
+		tween.tween_property(self, "global_position", target_position, actual_distance / dash_speed)\
+			.set_trans(Tween.TRANS_SINE)\
+			.set_ease(Tween.EASE_OUT)
 		tween.tween_callback(end_dash)
 	
-func end_dash(delta : float) -> void:
+func end_dash() -> void:
 	is_dashing = false
 	set_collision_layer_value(1, true)
 	
-	
-	#perfoms atual dash
-	if is_dashing:
-		var current_distance = abs(position.x - dash_start_position)
-		if current_distance >= dash_max_distance:
-			is_dashing = false
-		else:
-			velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
-			velocity.y = 0
-			$player_animation.play("dash")
-	# Reducing the dash timer
-	if dash_timer > 0:
-		dash_timer -=delta
-	move_and_slide()
-	var isleft = velocity.x < 0 
-	$player_animation.flip_h = isleft
-	
-	if Input.is_action_pressed("attack"):
-		player_attack()
-	
-
 func player_attack():
+	basicattack = true
 	$player_animation.play("slash")
-	basicattack == true
-	$attackarea/CollisionShape2D.disabled == false
+	$attackarea/CollisionShape2D.disabled = false
 	await $player_animation.animation_finished
 
 func _on_player_animation_animation_finished() -> void:
 	if $player_animation.animation == "slash":
-		$attackarea/CollisionShape2D.disabled;
-		basicattack = false;
-	
-		
+		$attackarea/CollisionShape2D.disabled = true
+		basicattack = false

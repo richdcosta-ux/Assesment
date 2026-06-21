@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ch3q01y8fnxkl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="8_so66j"]
 [ext_resource type="Texture2D" uid="uid://c0ege08nyd15k" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="9_tr1x6"]
 [ext_resource type="Texture2D" uid="uid://b0fdvn8nmoxfl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="10_d5akn"]
+[ext_resource type="PackedScene" uid="uid://col5x27hapxe5" path="res://prefabs/mushroom.tscn" id="15_6dial"]
 [ext_resource type="Texture2D" uid="uid://d4k6w3a8qjj32" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="15_7nomh"]
 [ext_resource type="Texture2D" uid="uid://dvd51qd0al5dv" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="16_1s4pk"]
 
@@ -374,3 +375,6 @@ texture = ExtResource("10_d5akn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=385124197]
 position = Vector2(31, -300)
 shape = SubResource("WorldBoundaryShape2D_5xbjy")
+
+[node name="mushroom" parent="." unique_id=1650267243 instance=ExtResource("15_6dial")]
+position = Vector2(135, 578)

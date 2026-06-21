@@ -10,8 +10,6 @@
 _data = [Vector2(0, 0.99999994), 0.0, 0.0, 0, 0, Vector2(0.9885497, 0.8897972), -0.1114792, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht1c8"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fiy8a"]
 atlas = ExtResource("2_r66lb")
 region = Rect2(102, 0, 102, 96)
@@ -484,7 +482,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"slash",
-"speed": 11.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -540,6 +538,8 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht1c8"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c4y0"]
 radius = 7.0
 height = 33.0
@@ -554,24 +554,25 @@ scale = Vector2(2, 2)
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=253842989]
 collision_layer = 3
 script = ExtResource("1_r66lb")
+dash_max_distance = 300.0
 dash_curve = SubResource("Curve_ht1c8")
+
+[node name="player_animation" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=330451765]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8jxos")
+animation = &"slash"
+autoplay = "idle"
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="CharacterBody2D" unique_id=1775123774]
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_ht1c8")
 target_position = Vector2(0.5, 14.5)
 
-[node name="player_animation" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=330451765]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_8jxos")
-animation = &"dash"
-autoplay = "idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=421089150]
 position = Vector2(1, 17)
 shape = SubResource("CapsuleShape2D_2c4y0")
 
-[node name="attackarea" type="Area2D" parent="CharacterBody2D" unique_id=770868115]
+[node name="attackarea" type="Area2D" parent="CharacterBody2D" unique_id=770868115 groups=["sword"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/attackarea" unique_id=1725046648]
 position = Vector2(29.5, 16)
