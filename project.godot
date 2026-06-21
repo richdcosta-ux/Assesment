@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="The Hollow of the knight"
-run/main_scene="uid://cjibp7dvvq5t1"
+run/main_scene="uid://cip853hq7a7i7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/main_scene="uid://cip853hq7a7i7"
 
 [global_group]
 
