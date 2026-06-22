@@ -1,0 +1,380 @@
+[gd_scene format=4 uid="uid://cjibp7dvvq5t1"]
+
+[ext_resource type="Texture2D" uid="uid://dtcoemwqh7kfd" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_2aecg"]
+[ext_resource type="Texture2D" uid="uid://bjlw6dt4u556q" path="res://assets/mossy area/Mossy - TileSet.png" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://b67wdh2lxyd8p" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0010_1.png" id="2_6dial"]
+[ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="2_bswci"]
+[ext_resource type="Texture2D" uid="uid://h0ey6r7ct85o" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="3_7nomh"]
+[ext_resource type="PackedScene" uid="uid://bu71gjcha1w0d" path="res://scenes/killzone.tscn" id="3_rus8k"]
+[ext_resource type="Texture2D" uid="uid://bqtrf40kshbtv" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="4_1s4pk"]
+[ext_resource type="Texture2D" uid="uid://cl3hbf62aqadd" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0007_Lights.png" id="5_x2xxo"]
+[ext_resource type="Texture2D" uid="uid://deh8y6sngum3o" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="6_2cbcq"]
+[ext_resource type="Texture2D" uid="uid://ch3q01y8fnxkl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="8_so66j"]
+[ext_resource type="Texture2D" uid="uid://c0ege08nyd15k" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="9_tr1x6"]
+[ext_resource type="Texture2D" uid="uid://b0fdvn8nmoxfl" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="10_d5akn"]
+[ext_resource type="PackedScene" uid="uid://col5x27hapxe5" path="res://prefabs/mushroom.tscn" id="15_6dial"]
+[ext_resource type="Texture2D" uid="uid://d4k6w3a8qjj32" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="15_7nomh"]
+[ext_resource type="Texture2D" uid="uid://dvd51qd0al5dv" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="16_1s4pk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
+texture = ExtResource("1_014kd")
+texture_region_size = Vector2i(512, 512)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-177.72298, -132.15297, 256, -150.38097, 256, 256, -256, 256, -256, -141.26697)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-162.34964, -149.00586, 256, -153.41896, 256, 256, -149.00583, 237.9646)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-144.30496, -156.45697, 120.00101, -150.38097, 129.11502, 62.279022, 138.22897, 256, -174.68497, 256, -159.49496, 65.31702)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-177.72298, -132.15297, 132.15298, -126.076965, 144.30496, 256, -256, 256, -256, -141.26697)
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(55.599243, -140.10999, 256, -153.41896, 256, 140.10999, 117.87036, 68.94299)
+0:5/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -153.4538, 256, -153.41896, 256, 140.10999, -256, 100.07855)
+1:2/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150.38097, -256, 116.96298, -256, 129.11502, 62.279022, 138.22897, 256, -174.68497, 256, -159.49496, 65.31702)
+4:1/0 = 0
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150.38097, -256, 116.96298, -256, 135.19101, 4.557007, -10.632996, 101.77301, -126.076965, 13.6710205)
+2:2/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -153.4538, -60.04712, -113.42236, -108.974396, 91.18268, -256, 100.07855)
+3:3/0 = 0
+4:3/0 = 0
+4:2/0 = 0
+3:4/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+6:3/0 = 0
+7:4/0 = 0
+7:3/0 = 0
+6:4/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+12:1/0 = 0
+12:2/0 = 0
+11:2/0 = 0
+10:2/0 = 0
+10:1/0 = 0
+9:1/0 = 0
+8:1/0 = 0
+9:2/0 = 0
+9:3/0 = 0
+11:1/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+11:3/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+12:4/0 = 0
+11:5/0 = 0
+10:5/0 = 0
+9:5/0 = 0
+8:5/0 = 0
+12:5/0 = 0
+8:6/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+9:6/0 = 0
+11:7/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+12:7/0 = 0
+10:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+6:7/0 = 0
+4:6/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+1:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+16:8/0 = 0
+16:9/0 = 0
+16:10/0 = 0
+15:10/0 = 0
+14:10/0 = 0
+13:10/0 = 0
+12:10/0 = 0
+11:10/0 = 0
+11:9/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+15:9/0 = 0
+14:9/0 = 0
+13:9/0 = 0
+12:9/0 = 0
+9:8/0 = 0
+8:8/0 = 0
+7:8/0 = 0
+6:8/0 = 0
+5:8/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+4:8/0 = 0
+3:8/0 = 0
+2:8/0 = 0
+0:7/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+4:10/0 = 0
+3:10/0 = 0
+2:10/0 = 0
+1:10/0 = 0
+0:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+5:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rus8k"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_bswci")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2aecg"]
+load_path = "res://.godot/imported/Layer_0005_5.png-1f9ea134df70c63feab0fe640e8ab7da.ctex"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5xbjy"]
+distance = -1149.0
+
+[node name="level1" type="Node2D" unique_id=1061009512]
+
+[node name="player" parent="." unique_id=1766685512 instance=ExtResource("2_bswci")]
+position = Vector2(119, 482)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1529662245]
+position = Vector2(0, 5.9999995)
+scale = Vector2(0.12, 0.12)
+tile_map_data = PackedByteArray("AAD//woAAAAAAAAAAAD//wsAAAAAAAEAAAD//wwAAAAAAAEAAAD//w0AAAAAAAIAAAAAAAoAAAABAAAAAAAAAAsAAAABAAEAAAAAAAwAAAABAAEAAAAAAA0AAAABAAEAAAABAAoAAAABAAAAAAABAAsAAAABAAEAAAABAAwAAAABAAEAAAABAA0AAAABAAIAAAACAAoAAAABAAAAAAACAAsAAAABAAEAAAACAAwAAAABAAEAAAACAA0AAAABAAEAAAADAAoAAAABAAAAAAADAAsAAAABAAEAAAADAAwAAAABAAEAAAADAA0AAAABAAIAAAAEAAoAAAABAAAAAAAEAAsAAAABAAEAAAAEAAwAAAABAAEAAAAEAA0AAAABAAEAAAAFAAoAAAABAAAAAAAFAAsAAAABAAEAAAAFAAwAAAABAAEAAAAFAA0AAAABAAIAAAAGAAoAAAABAAAAAAAGAAsAAAABAAEAAAAGAAwAAAABAAEAAAAGAA0AAAABAAEAAAAHAAoAAAABAAAAAAAHAAsAAAABAAEAAAAHAAwAAAABAAEAAAAHAA0AAAABAAIAAAAIAAoAAAABAAAAAAAIAAsAAAABAAEAAAAIAAwAAAABAAEAAAAIAA0AAAABAAIAAAAJAAoAAAABAAAAAAAJAAsAAAABAAEAAAAJAAwAAAABAAEAAAAJAA0AAAABAAIAAAAKAAoAAAABAAAAAAAKAAsAAAABAAEAAAAKAAwAAAABAAEAAAAKAA0AAAABAAIAAAALAAoAAAABAAAAAAALAAsAAAABAAEAAAALAAwAAAABAAEAAAALAA0AAAABAAIAAAAMAAoAAAABAAAAAAAMAAsAAAABAAEAAAAMAAwAAAABAAEAAAAMAA0AAAABAAIAAAANAAoAAAABAAAAAAANAAsAAAABAAEAAAANAAwAAAABAAEAAAANAA0AAAABAAIAAAAOAAoAAAABAAAAAAAOAAsAAAABAAEAAAAOAAwAAAABAAEAAAAOAA0AAAABAAIAAAAPAAoAAAABAAAAAAAPAAwAAAABAAEAAAAPAA0AAAABAAIAAAAQAAoAAAABAAAAAAAQAAwAAAABAAEAAAAQAA0AAAABAAIAAAARAAoAAAABAAAAAAARAAwAAAABAAEAAAARAA0AAAABAAIAAAASAAoAAAABAAAAAAASAAsAAAABAAEAAAASAA0AAAABAAIAAAATAAoAAAABAAAAAAATAAsAAAABAAEAAAATAA0AAAABAAIAAAAUAAoAAAABAAAAAAAUAAwAAAABAAEAAAAVAAoAAAABAAAAAAAVAAwAAAABAAEAAAAWAAoAAAABAAAAAAAWAAwAAAABAAEAAAAXAAoAAAABAAAAAAAXAAsAAAABAAEAAAAXAA0AAAABAAIAAAAYAAoAAAABAAAAAAAYAAsAAAABAAEAAAAYAA0AAAABAAIAAAAZAAoAAAABAAAAAAAZAAsAAAABAAEAAAAZAAwAAAABAAEAAAAaAAoAAAABAAAAAAAaAAsAAAABAAEAAAAaAAwAAAABAAEAAAAcAAoAAAABAAAAAAAdAAoAAAABAAAAAAAeAAoAAAABAAAAAAAfAAoAAAABAAAAAAAiAAoAAAAAAAMAAAAjAAoAAAABAAMAAAAkAAoAAAABAAMAAAAnAAoAAAAAAAMAAAAoAAoAAAABAAMAAAApAAoAAAACAAMAAAAFAA4AAAAAAAIAAAAGAA4AAAABAAIAAAAHAA4AAAABAAIAAAAPAAsAAAABAAEAAAAQAAsAAAABAAEAAAARAAsAAAABAAEAAAASAAwAAAABAAEAAAATAAwAAAABAAEAAAAUAA0AAAABAAIAAAAVAA0AAAABAAIAAAAWAA0AAAABAAIAAAAbAAoAAAABAAAAAAAbAAsAAAABAAEAAAAbAAwAAAABAAEAAAAcAAsAAAABAAEAAAAcAAwAAAABAAEAAAAcAA0AAAABAAIAAAAdAAsAAAABAAEAAAAdAAwAAAABAAEAAAAdAA0AAAABAAIAAAAeAAsAAAABAAEAAAAeAAwAAAABAAEAAAAeAA0AAAABAAIAAAAfAAsAAAABAAEAAAAfAAwAAAABAAEAAAAfAA0AAAACAAIAAAAhAAoAAAADAAMAAAAlAAoAAAACAAMAAAAsAAoAAAAAAAMAAAAtAAoAAAABAAMAAAAuAAoAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_rus8k")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1803698305]
+visible = false
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=734719770]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=639370039]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_2aecg")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1170998562]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=2109083939]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_6dial")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=805146290]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1017002818]
+position = Vector2(-2.1192762e-05, -69.44444)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_7nomh")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1311984332]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=157362444]
+position = Vector2(0, -88.888885)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_1s4pk")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2068877243]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=1937840330]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_x2xxo")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" unique_id=938344700]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=490369761]
+position = Vector2(0, -54.166664)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_2cbcq")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground" unique_id=549707061]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7" unique_id=456397253]
+position = Vector2(0, -46.527775)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("CompressedTexture2D_2aecg")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2004376682]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8" unique_id=293458095]
+position = Vector2(0, -30.555553)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_so66j")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1243535546]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9" unique_id=1924300094]
+position = Vector2(4.8610897, -11.805555)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_tr1x6")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground" unique_id=366543669]
+position = Vector2(382.5, 227.5)
+scale = Vector2(1.2, 1.2)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10" unique_id=1519678595]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_d5akn")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=231220809]
+layer = 1
+visible = false
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=618343200]
+position = Vector2(277.5, 306.66663)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer" unique_id=1751907556]
+position = Vector2(-2.5000002, 15.833361)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_7nomh")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=1017638238]
+position = Vector2(277.5, 306.66663)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2" unique_id=85669055]
+position = Vector2(0, -7.499975)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_1s4pk")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=416478737]
+position = Vector2(281.66663, 625.8334)
+scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer5" unique_id=770775572]
+position = Vector2(88.8889, -335.4167)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_x2xxo")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=548364700]
+position = Vector2(400, 234.16666)
+scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer9" unique_id=777245109]
+position = Vector2(-14.583354, -11.805555)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_tr1x6")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=104213076]
+position = Vector2(483.33325, 215)
+scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(928, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer10" unique_id=1039264529]
+position = Vector2(-81.24995, 1.3888817)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_d5akn")
+
+[node name="killzone" parent="." unique_id=591210440 instance=ExtResource("3_rus8k")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=385124197]
+position = Vector2(31, -300)
+shape = SubResource("WorldBoundaryShape2D_5xbjy")
+
+[node name="mushroom" parent="." unique_id=1650267243 instance=ExtResource("15_6dial")]
+position = Vector2(618, 572)
