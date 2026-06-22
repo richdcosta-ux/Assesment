@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
 
-@export var max_health := 5
 @export var walk_speed = 150.0
 @export var run_speed = 250.0
 @export var jump_force = -400.0
@@ -13,7 +12,6 @@ extends CharacterBody2D
 @export var dash_max_distance = 100.0
 @export var dash_curve : Curve
 @export var dash_cooldown = 1.0
-@export var wall_jump_boost = 1.6
 
 @export_range(0, 1) var acceleration = 0.2
 @export_range(0, 1) var deceleration = 0.2
@@ -29,19 +27,9 @@ var jumps_left = 1
 var on_wall = false
 var wall_direction = 0
 var is_wall_clinging = false
-var wall_coyote_time := 0.12
-var wall_coyote_timer := 0.0
-var last_wall_jumped = 0
-var health := max_health
-var invincible := false
-var invincible_time := 0.4
-var invincible_timer := 0.0
+
 
 func _physics_process(delta: float) -> void:
-	if invincible:
-		invincible_timer -= delta
-		if invincible_timer <= 0:
-			invincible = false
 	if dash_timer > 0: 
 		dash_timer -= delta
 	if is_dashing:
@@ -59,11 +47,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not basicattack:
 		if is_on_floor():
 			velocity.y = jump_force
-		elif  (on_wall or wall_coyote_timer > 0) and wall_direction != last_wall_jumped:
+		elif on_wall:
 			velocity.y = jump_force
-			velocity.x = -wall_direction * run_speed * wall_jump_boost
-			last_wall_jumped = wall_direction
-			wall_coyote_timer = 0   # consume coyote jump
+			velocity.x = -wall_direction * run_speed
+			
 		elif jumps_left > 0:
 			velocity.y = jump_force
 			jumps_left -= 1
@@ -96,11 +83,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall_only():
 		on_wall = true
 		wall_direction = sign(get_last_slide_collision().get_normal().x)
-		wall_coyote_timer = wall_coyote_time
-	if wall_direction != last_wall_jumped:
-		last_wall_jumped = 0
-	else: 
-		wall_coyote_timer = max(wall_coyote_timer - delta, 0)
 	if on_wall and not is_on_floor() and velocity.y > 0 and not basicattack:
 		is_wall_clinging = true
 		sprite.rotation_degrees = wall_direction * -15
@@ -108,7 +90,6 @@ func _physics_process(delta: float) -> void:
 		sprite.position.x = wall_direction * -6
 		player_animation.play("idle")
 		player_animation.flip_h = wall_direction == 1
-		velocity.x = wall_direction * 10
 	else:
 		is_wall_clinging = false
 		sprite.rotation_degrees = 0
@@ -120,8 +101,7 @@ func _physics_process(delta: float) -> void:
 	if basicattack:
 		pass
 	elif is_wall_clinging:
-		if Input.is_action_just_pressed("jump"):
-			is_wall_clinging = false
+		pass
 	else:
 		if direction != 0:
 			$player_animation.play("run" if speed == run_speed else "walk")
@@ -174,17 +154,3 @@ func _on_player_animation_animation_finished() -> void:
 	if $player_animation.animation == "slash":
 		$attackarea/CollisionShape2D.disabled = true
 		basicattack = false
-func take_damage(amount: int):
-	if invincible:
-		return
-	health -= amount
-	health = max(health, 0)
-	$player_animation.play("hurt")
-	invincible = true
-	invincible_timer = invincible_time
-	velocity.x = -wall_direction * 200
-	if health <= 0:
-		die()
-func die():
-	player_animation.play("death")
-	set_physics_process(false)
