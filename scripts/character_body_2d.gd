@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var portal = $portal
 @onready var player_animation = $player_animation
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
