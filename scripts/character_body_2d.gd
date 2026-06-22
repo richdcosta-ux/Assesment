@@ -185,5 +185,5 @@ func take_damage(amount: int):
 	if health <= 0:
 		die()
 func die():
-	player_animation.play("death")
+	player_animation.play("")
 	set_physics_process(false)
