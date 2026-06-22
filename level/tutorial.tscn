@@ -241,6 +241,7 @@ label_settings = SubResource("LabelSettings_6yjpi")
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="." unique_id=1297696341]
+<<<<<<< HEAD
 <<<<<<< HEAD:scenes/tutorial.tscn
 <<<<<<< Updated upstream:scenes/tutorial.tscn
 offset_left = 6115.0
@@ -248,11 +249,16 @@ offset_top = 194.0
 offset_right = 6648.0
 offset_bottom = 433.0
 =======
+=======
+>>>>>>> parent of a982ea6 (added attack dmg)
 offset_left = 6098.0
 offset_top = 24.0
 offset_right = 6631.0
 offset_bottom = 452.0
+<<<<<<< HEAD
 >>>>>>> parent of a982ea6 (added attack dmg):level/tutorial.tscn
+=======
+>>>>>>> parent of a982ea6 (added attack dmg)
 text = "Congratulation
 
 Rest is under development
@@ -263,10 +269,13 @@ offset_right = 6756.0
 offset_bottom = 614.0
 text = "Congratulation
 
+<<<<<<< HEAD
 Rest is 
 under development
 >>>>>>> Stashed changes:level/tutorial.tscn
 
+=======
+>>>>>>> parent of a982ea6 (added attack dmg)
 "
 label_settings = SubResource("LabelSettings_6yjpi")
 horizontal_alignment = 1
