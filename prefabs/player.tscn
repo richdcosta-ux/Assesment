@@ -14,21 +14,33 @@ point_count = 2
 atlas = ExtResource("2_r66lb")
 region = Rect2(102, 0, 102, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwbmn"]
-atlas = ExtResource("2_ht1c8")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3or85"]
-atlas = ExtResource("2_ht1c8")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxohq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xetb"]
 atlas = ExtResource("2_ht1c8")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hvlk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_00sle"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pecvk"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwbmn"]
 atlas = ExtResource("2_ht1c8")
 region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or85"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxohq"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hvlk"]
+atlas = ExtResource("2_ht1c8")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1txc5"]
 atlas = ExtResource("1_4dohe")
@@ -299,6 +311,20 @@ animations = [{
 "loop": true,
 "name": &"dash",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xetb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00sle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pecvk")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,

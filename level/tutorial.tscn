@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cip853hq7a7i7"]
+[gd_scene format=4 uid="uid://b0fqrdb6phjhb"]
 
 [ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="1_c13y7"]
 [ext_resource type="Texture2D" uid="uid://ct4fns1iw56j2" path="res://assets/Forest of Illusion Files/Forest of Illusion Files/Assets/Layers/tiles.png" id="2_8ho6b"]

@@ -4,7 +4,7 @@ extends Area2D
 var health = 3
 var dead = false;
 var can_attack = true
-var attack_cooldown = 0.5
+var attack_cooldown = 0.8
 var player_in_range = false
 
 	
