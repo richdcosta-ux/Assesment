@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var root_scene = get_tree().current_scene
 @onready var player_animation = $player_animation
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
@@ -35,6 +36,7 @@ var health := max_health
 var invincible := false
 var invincible_time := 0.4
 var invincible_timer := 0.0
+var is_hurt = false
 
 func _physics_process(delta: float) -> void:
 	if invincible:
@@ -84,7 +86,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	var direction := Input.get_axis("left", "right")
-	if direction != 0 and not basicattack:
+	if direction != 0 and not basicattack and not is_hurt:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -118,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	
 	if basicattack:
 		pass
-	elif is_wall_clinging:
+	elif is_wall_clinging and not is_hurt:
 		if Input.is_action_just_pressed("jump"):
 			is_wall_clinging = false
 	else:
@@ -131,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("dash") and direction != 0 and dash_timer <= 0:
 		start_dash(direction)
-	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing:
+	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing and not is_hurt:
 		player_attack()
 	
 func start_dash(direction) -> void:
@@ -168,22 +170,20 @@ func player_attack():
 	$player_animation.play("slash")
 	$attackarea/CollisionShape2D.disabled = false
 	await $player_animation.animation_finished
+	
+func take_damage(amount: int):
+	pass
+
+func die():
+	pass
+
 
 func _on_player_animation_animation_finished() -> void:
 	if $player_animation.animation == "slash":
 		$attackarea/CollisionShape2D.disabled = true
 		basicattack = false
-func take_damage(amount: int):
-	if invincible:
-		return
-	health -= amount
-	health = max(health, 0)
-	$player_animation.play("hurt")
-	invincible = true
-	invincible_timer = invincible_time
-	velocity.x = -wall_direction * 200
-	if health <= 0:
-		die()
-func die():
-	player_animation.play("")
-	set_physics_process(false)
+	if $player_animation.animation == "hurt":
+		is_hurt = false
+		$player_animation.play("idle")
+	if $player_animation.animation == "dead":
+		get_tree().change_scene_to_file(root_scene.scene_file_path)
