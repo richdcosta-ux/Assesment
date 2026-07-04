@@ -37,6 +37,8 @@ var invincible := false
 var invincible_time := 0.4
 var invincible_timer := 0.0
 var is_hurt = false
+var hurt_timer := 0.0
+
 
 func _physics_process(delta: float) -> void:
 	if invincible:
@@ -61,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = jump_force
 		elif  (on_wall or wall_coyote_timer > 0) and wall_direction != last_wall_jumped:
-			velocity.y = jump_force
+			velocity.y = jump_force * 1.1
 			velocity.x = -wall_direction * run_speed * wall_jump_boost
 			last_wall_jumped = wall_direction
 			wall_coyote_timer = 0   # consume coyote jump
@@ -98,11 +100,11 @@ func _physics_process(delta: float) -> void:
 		on_wall = true
 		wall_direction = sign(get_last_slide_collision().get_normal().x)
 		wall_coyote_timer = wall_coyote_time
-	if wall_direction != last_wall_jumped:
+	if on_wall and wall_direction != last_wall_jumped:
 		last_wall_jumped = 0
 	else: 
 		wall_coyote_timer = max(wall_coyote_timer - delta, 0)
-	if on_wall and not is_on_floor() and velocity.y > 0 and not basicattack:
+	if on_wall and not is_on_floor() and velocity.y > 0 and not basicattack and not Input.is_action_pressed("jump"):
 		is_wall_clinging = true
 		sprite.rotation_degrees = wall_direction * -15
 		sprite.scale = Vector2(0.9, 1.1)
@@ -137,8 +139,13 @@ func _physics_process(delta: float) -> void:
 		player_attack()
 	
 func start_dash(direction) -> void:
+		$dash_attack_area/CollisionShape2D.disabled = false
+		$player_animation.play("dash")
 	#dash activation
 		is_dashing = true
+		dash_direction = direction
+		if dash_direction == 0:
+			dash_direction = -1 if $player_animation.flip_h else 1
 		dash_timer = dash_cooldown
 		$ShapeCast2D.target_position = Vector2(direction * dash_max_distance, 0)
 		$ShapeCast2D.force_shapecast_update()
@@ -164,6 +171,7 @@ func start_dash(direction) -> void:
 func end_dash() -> void:
 	is_dashing = false
 	set_collision_layer_value(1, true)
+	$dash_attack_area/CollisionShape2D.disabled = true
 	
 func player_attack():
 	basicattack = true
@@ -177,6 +185,13 @@ func take_damage(amount: int):
 func die():
 	pass
 
+func launch_up():
+	velocity.y = -600
+	is_hurt = false 
+	hurt_timer = 0
+	$player_animation.play("jump")
+
+
 
 func _on_player_animation_animation_finished() -> void:
 	if $player_animation.animation == "slash":
@@ -185,5 +200,12 @@ func _on_player_animation_animation_finished() -> void:
 	if $player_animation.animation == "hurt":
 		is_hurt = false
 		$player_animation.play("idle")
-	if $player_animation.animation == "dead":
-		get_tree().change_scene_to_file(root_scene.scene_file_path)
+
+
+func _on_dash_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		var enemy = area.get_parent()
+		enemy.take_damage(1)
+		enemy.velocity.x = dash_direction * 550
+		enemy.velocity.y = -300
+	

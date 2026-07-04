@@ -5,10 +5,36 @@
 [ext_resource type="Texture2D" uid="uid://wp62uy4duqq6" path="res://assets/player/ATTACK 1.png" id="2_1txc5"]
 [ext_resource type="Texture2D" uid="uid://bvd8k1d3aakxr" path="res://assets/player/HURT.png" id="2_ht1c8"]
 [ext_resource type="Texture2D" uid="uid://dftkyckpw1n80" path="res://assets/player/RUN.png" id="2_r66lb"]
+[ext_resource type="Texture2D" uid="uid://ohek7ujp6ip6" path="res://assets/Particle Effect 2.png" id="3_g2jcq"]
+[ext_resource type="Texture2D" uid="uid://i6riwcfy3xgq" path="res://assets/Particle Effect 1.png" id="3_u51tk"]
 
 [sub_resource type="Curve" id="Curve_ht1c8"]
 _data = [Vector2(0, 0.99999994), 0.0, 0.0, 0, 0, Vector2(0.9885497, 0.8897972), -0.1114792, 0.0, 1, 0]
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2poi1"]
+atlas = ExtResource("2_1txc5")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iklg7"]
+atlas = ExtResource("2_1txc5")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwtp6"]
+atlas = ExtResource("3_u51tk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4yak"]
+atlas = ExtResource("3_g2jcq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcxpe"]
+atlas = ExtResource("2_1txc5")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hdv"]
+atlas = ExtResource("2_1txc5")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fiy8a"]
 atlas = ExtResource("2_r66lb")
@@ -306,11 +332,29 @@ region = Rect2(1440, 0, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2poi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iklg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwtp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4yak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcxpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hdv")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fiy8a")
 }],
 "loop": true,
 "name": &"dash",
-"speed": 2.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -573,6 +617,9 @@ height = 33.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1txc5"]
 size = Vector2(18, 28.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u51tk"]
+size = Vector2(20, 28)
+
 [node name="player" type="Node2D" unique_id=1766685512]
 z_index = -1
 scale = Vector2(2, 2)
@@ -586,7 +633,7 @@ dash_curve = SubResource("Curve_ht1c8")
 [node name="player_animation" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=330451765]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8jxos")
-animation = &"hurt"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="CharacterBody2D" unique_id=1775123774]
@@ -615,4 +662,12 @@ limit_bottom = 840
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
+[node name="dash_attack_area" type="Area2D" parent="CharacterBody2D" unique_id=1558840973 groups=["sword"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/dash_attack_area" unique_id=420984612]
+position = Vector2(30.5, 15)
+shape = SubResource("RectangleShape2D_u51tk")
+disabled = true
+
 [connection signal="animation_finished" from="CharacterBody2D/player_animation" to="CharacterBody2D" method="_on_player_animation_animation_finished"]
+[connection signal="area_entered" from="CharacterBody2D/dash_attack_area" to="CharacterBody2D" method="_on_dash_attack_area_area_entered"]
