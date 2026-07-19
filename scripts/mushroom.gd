@@ -6,9 +6,15 @@ var dead = false;
 var can_attack = true
 var attack_cooldown = 0.8
 var player_in_range = false
-
+var velocity := Vector2.ZERO
+var stun_timer := 0.0
 	
 func _process(delta: float) -> void:
+	if stun_timer > 0:
+		stun_timer -= delta
+		global_position.x += velocity.x * delta
+		return
+	velocity.x = move_toward(velocity.x, 0, 20)
 	if player_in_range and can_attack and not dead:
 		attack()
 func attack():
@@ -33,6 +39,11 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("sword") and not dead:
 		health -= 1
+		var player = area.get_parent()
+		var direction = sign(global_position.x - player.global_position.x)
+		velocity.x = direction * 120
+		stun_timer = 0.2
+		
 		if health <= 0:
 			dead = true
 			$AnimatedSprite2D.play("death")

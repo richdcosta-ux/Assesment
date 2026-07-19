@@ -23,6 +23,7 @@ window/main_scene="uid://cip853hq7a7i7"
 
 sword=""
 player=""
+enemy=""
 
 [input]
 
