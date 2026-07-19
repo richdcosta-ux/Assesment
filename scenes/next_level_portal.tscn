@@ -2,6 +2,60 @@
 
 [ext_resource type="Script" uid="uid://css6gbu3sqws2" path="res://scripts/next_level_portal.gd" id="1_f720p"]
 [ext_resource type="Texture2D" uid="uid://ctiy7hkxgno8t" path="res://assets/Portal.png" id="2_1hr3y"]
+[ext_resource type="Texture2D" uid="uid://ybpiochphm0w" path="res://assets/Portal-Sheet.png" id="3_1hr3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6qir"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a13oo"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k5fq"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu7g0"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbvm3"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s21vb"]
+atlas = ExtResource("3_1hr3y")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_158w6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1hr3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6qir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a13oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k5fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu7g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbvm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s21vb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h6qir"]
 radius = 12.0
@@ -10,9 +64,11 @@ height = 46.0
 [node name="next_level_portal" type="Area2D" unique_id=269172372]
 script = ExtResource("1_f720p")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328789046]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=805533422]
 texture_filter = 1
-texture = ExtResource("2_1hr3y")
+sprite_frames = SubResource("SpriteFrames_158w6")
+autoplay = "default"
+frame_progress = 0.53563684
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=969765863]
 position = Vector2(0, 1)
