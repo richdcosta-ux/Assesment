@@ -277,7 +277,7 @@ position = Vector2(641, 1032)
 shape = SubResource("WorldBoundaryShape2D_nlqja")
 
 [node name="slime_launch_pad" parent="." unique_id=472022873 instance=ExtResource("10_0epgs")]
-position = Vector2(852.99994, 755)
+position = Vector2(4215, 693)
 scale = Vector2(0.2, 0.2)
 
 [node name="mushroom2" parent="." unique_id=573904463 instance=ExtResource("7_gbqnl")]
