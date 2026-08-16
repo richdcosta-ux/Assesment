@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cgag1p0blc34d"]
+
+[ext_resource type="Script" uid="uid://br0x2lcpu82r3" path="res://scripts/inventory.gd" id="1_cashb"]
+[ext_resource type="Script" uid="uid://ct0qx0ekq75fe" path="res://scripts/invcontainer.gd" id="3_f8vju"]
+[ext_resource type="PackedScene" uid="uid://dvimpfttb60q1" path="res://prefabs/iteminfo.tscn" id="4_1025m"]
+[ext_resource type="Script" uid="uid://cisvp78w0uetq" path="res://scripts/gold.gd" id="6_tqgso"]
+
+[sub_resource type="Animation" id="Animation_xd54l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -600)]
+}
+
+[sub_resource type="Animation" id="Animation_10k27"]
+resource_name = "transin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -600), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eu8to"]
+resource_name = "transout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wamvd"]
+_data = {
+&"RESET": SubResource("Animation_xd54l"),
+&"transin": SubResource("Animation_10k27"),
+&"transout": SubResource("Animation_eu8to")
+}
+
+[node name="inventory" type="CanvasLayer" unique_id=1442841989]
+process_mode = 3
+offset = Vector2(0, -600)
+transform = Transform2D(1, 0, 0, 1, 0, -600)
+script = ExtResource("1_cashb")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1114416100]
+libraries/ = SubResource("AnimationLibrary_wamvd")
+
+[node name="Panel" type="Panel" parent="." unique_id=1881044382]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -197.25
+offset_right = 381.0
+offset_bottom = 197.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="close" type="Button" parent="." unique_id=245205288]
+texture_filter = 1
+offset_left = 846.0
+offset_top = 136.0
+offset_right = 945.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+
+[node name="title" type="Label" parent="." unique_id=1188257934]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -180.0
+offset_right = 142.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="gold" type="Label" parent="." unique_id=1636769250]
+texture_filter = 1
+offset_left = 221.0
+offset_top = 166.0
+offset_right = 261.0
+offset_bottom = 189.0
+script = ExtResource("6_tqgso")
+
+[node name="invcontainer" type="GridContainer" parent="." unique_id=1523501275]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -332.0
+offset_right = 95.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 6
+script = ExtResource("3_f8vju")
+
+[node name="iteminfo" parent="." unique_id=547677123 instance=ExtResource("4_1025m")]
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

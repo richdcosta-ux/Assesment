@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://0cdn6g4p8g7f"]
+
+[ext_resource type="Script" uid="uid://ct3nn6kn5eohi" path="res://scripts/tutorial_npc.gd" id="1_7y2kc"]
+[ext_resource type="Texture2D" uid="uid://bspy2ulh0hd7j" path="res://assets/player/IDLE.png" id="1_qff3h"]
+[ext_resource type="PackedScene" uid="uid://gklrgww7yys4" path="res://prefabs/dialogue_prefabs/dialogue_trigger_area.tscn" id="2_7j7mc"]
+[ext_resource type="Script" uid="uid://difv7kcfnykbu" path="res://scripts/dialogue_handler.gd" id="2_dkyrs"]
+[ext_resource type="PackedScene" uid="uid://bh0haotkolarw" path="res://prefabs/dialogue_prefabs/dialogue_handler.tscn" id="3_dehm3"]
+[ext_resource type="Script" uid="uid://cg8v6ba2hl0vv" path="res://scripts/dialogue_trigger_area.gd" id="5_h7exb"]
+[ext_resource type="PackedScene" uid="uid://cr71kvqico1ye" path="res://prefabs/dialogue_box.tscn" id="5_mfaw3"]
+[ext_resource type="FontFile" uid="uid://4tgoho7x2hxl" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="8_sqdwy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dehm3"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y2kc"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfaw3"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkyrs"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7exb"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqdwy"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3uy5"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpna5"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i7dx"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38kh7"]
+atlas = ExtResource("1_qff3h")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvoeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dehm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y2kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfaw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkyrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7exb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqdwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3uy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpna5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i7dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38kh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j7mc"]
+size = Vector2(54, 33)
+
+[node name="tutorial_npc" type="Area2D" unique_id=468576035]
+z_index = -1
+scale = Vector2(2, 2)
+script = ExtResource("1_7y2kc")
+character_dialogue_script = ExtResource("2_dkyrs")
+
+[node name="npc_anim" type="AnimatedSprite2D" parent="." unique_id=574436834]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qvoeq")
+autoplay = "default"
+flip_h = true
+
+[node name="dialogue_trigger_area" parent="." unique_id=1587778939 instance=ExtResource("2_7j7mc")]
+script = ExtResource("5_h7exb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025433175]
+position = Vector2(0.5, 16.5)
+shape = SubResource("RectangleShape2D_7j7mc")
+
+[node name="interact_label" type="Label" parent="." unique_id=369914411]
+visible = false
+z_index = 100
+texture_filter = 1
+offset_left = -38.5
+offset_top = -18.5
+offset_right = 42.5
+offset_bottom = 4.5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("8_sqdwy")
+theme_override_font_sizes/font_size = 12
+text = "[E] To Talk"
+
+[node name="dialogue_handler" parent="." unique_id=1756552307 node_paths=PackedStringArray("dialogue_trigger_area") instance=ExtResource("3_dehm3")]
+character_name = "Tutorial NPC"
+dialogue_trigger_area = NodePath("..")
+character_dialogue_script = ExtResource("1_7y2kc")
+
+[node name="dialogue_box" parent="." unique_id=88227747 instance=ExtResource("5_mfaw3")]

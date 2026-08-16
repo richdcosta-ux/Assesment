@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://hd1e8nvk8c3p"]
+
+[ext_resource type="Script" uid="uid://ejaxchti5b7r" path="res://scripts/npc.gd" id="1_1ov3m"]
+[ext_resource type="Texture2D" uid="uid://dbwvmus5r55oo" path="res://assets/npc/idle/sprite sheets/idle.png" id="1_tnah1"]
+[ext_resource type="PackedScene" uid="uid://cxu206sctbgdk" path="res://prefabs/shop.tscn" id="3_cuwdc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6oha"]
+size = Vector2(93, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuwdc"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(0, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m1cq"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(46, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h87kd"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(92, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j2mh"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(138, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b517y"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(184, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om2i8"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(230, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wp8v"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(276, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12jmq"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(322, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4qp3"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(368, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytsb8"]
+atlas = ExtResource("1_tnah1")
+region = Rect2(414, 0, 46, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4c6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuwdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m1cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h87kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j2mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b517y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om2i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wp8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12jmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4qp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytsb8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[node name="shop_npc" type="Area2D" unique_id=1503030385]
+script = ExtResource("1_1ov3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=799227827]
+position = Vector2(10.5, 0.5)
+shape = SubResource("RectangleShape2D_q6oha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1457175137]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u4c6h")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="shop" parent="." unique_id=1442841989 instance=ExtResource("3_cuwdc")]
+
+[node name="Label" type="Label" parent="." unique_id=858537579]
+visible = false
+offset_left = -35.0
+offset_top = -51.0
+offset_right = 51.0
+offset_bottom = -28.0
+text = "[E] To Shop"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

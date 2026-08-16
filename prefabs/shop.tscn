@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://cxu206sctbgdk"]
+
+[ext_resource type="Script" uid="uid://d2y757qbbublo" path="res://scripts/shop.gd" id="1_10k27"]
+[ext_resource type="Texture2D" uid="uid://dsef4f5bilj7i" path="res://assets/Pixel Adventure 1/Free/Items/Fruits/Apple.png" id="2_eu8to"]
+[ext_resource type="Texture2D" uid="uid://cctd3qphkm0r" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_blue_full.png" id="3_hxg2x"]
+[ext_resource type="Texture2D" uid="uid://nj27xmeq27lj" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_blue_half.png" id="4_pba2h"]
+[ext_resource type="Texture2D" uid="uid://swvhglbhoo1" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_empty.png" id="5_qpdnj"]
+[ext_resource type="Script" uid="uid://cisvp78w0uetq" path="res://scripts/gold.gd" id="6_pba2h"]
+[ext_resource type="FontFile" uid="uid://upiebnbg1mci" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="6_qpdnj"]
+
+[sub_resource type="Animation" id="Animation_xd54l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -600)]
+}
+
+[sub_resource type="Animation" id="Animation_10k27"]
+resource_name = "transin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -600), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eu8to"]
+resource_name = "transout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wamvd"]
+_data = {
+&"RESET": SubResource("Animation_xd54l"),
+&"transin": SubResource("Animation_10k27"),
+&"transout": SubResource("Animation_eu8to")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wamvd"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07nn"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxg2x"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pba2h"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpdnj"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1wnk"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0og15"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtrui"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kupta"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy5wk"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x1jk"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smi3"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuj4w"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6d8d"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uytwk"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7is4"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqj18"]
+atlas = ExtResource("2_eu8to")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fyusp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wamvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r07nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxg2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pba2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpdnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1wnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0og15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtrui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kupta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy5wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x1jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuj4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6d8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uytwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7is4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqj18")
+}],
+"loop": true,
+"name": &"Apple",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hxg2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pba2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qpdnj")
+}],
+"loop": true,
+"name": &"Speed Potion",
+"speed": 2.0
+}]
+
+[node name="shop" type="CanvasLayer" unique_id=1442841989]
+process_mode = 3
+offset = Vector2(0, -600)
+transform = Transform2D(1, 0, 0, 1, 0, -600)
+script = ExtResource("1_10k27")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1114416100]
+libraries/ = SubResource("AnimationLibrary_wamvd")
+
+[node name="Panel" type="Panel" parent="." unique_id=1881044382]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -197.25
+offset_right = 381.0
+offset_bottom = 197.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="close" type="Button" parent="." unique_id=245205288]
+texture_filter = 1
+offset_left = 846.0
+offset_top = 136.0
+offset_right = 945.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+
+[node name="Control" type="Control" parent="." unique_id=1763209565]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="animsprite" type="AnimatedSprite2D" parent="Control" unique_id=886201024]
+texture_filter = 1
+position = Vector2(578.00006, 319.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fyusp")
+animation = &"Apple"
+
+[node name="name" type="Label" parent="Control" unique_id=1188257934]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 413.0
+offset_top = 199.0
+offset_right = 701.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Apple"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="des" type="Label" parent="Control" unique_id=1891337242]
+texture_filter = 1
+layout_mode = 0
+offset_left = 464.0
+offset_top = 371.0
+offset_right = 699.0
+offset_bottom = 399.0
+theme_override_font_sizes/font_size = 16
+text = "(Regenerates health)
+Cost: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="next" type="Button" parent="Control" unique_id=120825128]
+texture_filter = 1
+layout_mode = 0
+offset_left = 635.0
+offset_top = 289.0
+offset_right = 660.0
+offset_bottom = 339.0
+theme_override_font_sizes/font_size = 30
+text = ">"
+
+[node name="prev" type="Button" parent="Control" unique_id=1509566227]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 294.0
+offset_right = 517.0
+offset_bottom = 344.0
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="buy" type="Button" parent="Control" unique_id=2133723309]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 456.0
+offset_right = 653.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 30
+text = "Purchase"
+
+[node name="Label" type="Label" parent="Control" unique_id=1204281153]
+texture_filter = 1
+layout_mode = 0
+offset_left = 509.0
+offset_top = 127.0
+offset_right = 652.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("6_qpdnj")
+theme_override_font_sizes/font_size = 53
+text = "Shop
+"
+uppercase = true
+
+[node name="gold" type="Label" parent="." unique_id=1636769250]
+texture_filter = 1
+offset_left = 221.0
+offset_top = 154.0
+offset_right = 261.0
+offset_bottom = 177.0
+script = ExtResource("6_pba2h")
+
+[connection signal="pressed" from="close" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Control/buy" to="." method="_on_buy_pressed"]

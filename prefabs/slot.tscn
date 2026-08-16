@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dykh2b7cskfjb"]
+
+[ext_resource type="Texture2D" uid="uid://dsef4f5bilj7i" path="res://assets/Pixel Adventure 1/Free/Items/Fruits/Apple.png" id="1_lsl1e"]
+[ext_resource type="Script" uid="uid://bw0my5d054lvs" path="res://scripts/slot.gd" id="1_mferg"]
+
+[node name="slot" type="Panel" unique_id=268290405]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_mferg")
+
+[node name="icon" type="Sprite2D" parent="." unique_id=175249160]
+texture_filter = 1
+position = Vector2(31, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("1_lsl1e")
+hframes = 17
+
+[node name="count" type="Label" parent="." unique_id=534805022]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 63.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

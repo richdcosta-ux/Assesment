@@ -5,10 +5,11 @@ extends CharacterBody2D
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
 
+
 @export var max_health := 5
 @export var walk_speed = 150.0
 @export var run_speed = 250.0
-@export var jump_force = -400.0
+@export var jump_force = -500.0
 @export var dash_speed = 400.0
 @export var dash_max_distance = 100.0
 @export var dash_curve : Curve
@@ -41,10 +42,22 @@ var hurt_timer := 0.0
 
 
 func _physics_process(delta: float) -> void:
+	if not globalvariables.can_move or global.shop_open:
+		$player_animation.play("idle")
+		$player_animation.flip_h = velocity.x < 0
+		return
+	if Input.is_action_just_pressed("pause"):
+		var pause_menu = get_tree().current_scene.get_node("PauseMenu")
+		pause_menu.open_pause()
+		return
 	if invincible:
 		invincible_timer -= delta
+		$player_animation.modulate.a = 0.5
 		if invincible_timer <= 0:
 			invincible = false
+	else:
+		$player_animation.modulate.a = 1.0
+		
 	if dash_timer > 0: 
 		dash_timer -= delta
 	if is_dashing:
@@ -52,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		if on_wall and velocity.y > 0:
+			
 			velocity.y = min(velocity.y, 80)
 		else:
 			velocity += get_gravity() * delta
@@ -62,15 +76,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not basicattack:
 		if is_on_floor():
 			velocity.y = jump_force
+			
 		elif  (on_wall or wall_coyote_timer > 0) and wall_direction != last_wall_jumped:
 			velocity.y = jump_force * 1.1
 			velocity.x = -wall_direction * run_speed * wall_jump_boost
 			last_wall_jumped = wall_direction
 			wall_coyote_timer = 0   # consume coyote jump
+			
 		elif jumps_left > 0:
 			velocity.y = jump_force
 			jumps_left -= 1
-		
+			
 	if Input.is_action_just_released("jump"):
 		velocity.y *= decelerate_on_jump_release
 		
@@ -88,7 +104,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	var direction := Input.get_axis("left", "right")
-	if direction != 0 and not basicattack and not is_hurt:
+	if direction != 0 and not basicattack:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -118,11 +134,9 @@ func _physics_process(delta: float) -> void:
 		sprite.scale = Vector2(1, 1)
 		sprite.position.x = 0
 	
-	
-	
 	if basicattack:
 		pass
-	elif is_wall_clinging and not is_hurt:
+	elif is_wall_clinging:
 		if Input.is_action_just_pressed("jump"):
 			is_wall_clinging = false
 	else:
@@ -130,12 +144,11 @@ func _physics_process(delta: float) -> void:
 			$player_animation.play("run" if speed == run_speed else "walk")
 		else:
 			$player_animation.play("idle")
-		
 	$player_animation.flip_h = velocity.x < 0
 	
 	if Input.is_action_just_pressed("dash") and direction != 0 and dash_timer <= 0:
 		start_dash(direction)
-	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing and not is_hurt:
+	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing:
 		player_attack()
 	
 func start_dash(direction) -> void:
@@ -149,6 +162,7 @@ func start_dash(direction) -> void:
 		dash_timer = dash_cooldown
 		$ShapeCast2D.target_position = Vector2(direction * dash_max_distance, 0)
 		$ShapeCast2D.force_shapecast_update()
+
 		
 		var target_position: Vector2
 		if $ShapeCast2D.is_colliding():
@@ -180,10 +194,27 @@ func player_attack():
 	await $player_animation.animation_finished
 	
 func take_damage(amount: int):
-	pass
+	if is_hurt:
+		return
+	health -= amount
+	if health <= 0:
+		is_hurt = false
+		invincible = false
+		die()
+		return
+	is_hurt = true
+	invincible = true
+	invincible_timer = invincible_time
+	velocity.x = -wall_direction * 200
+	$player_animation.play("hurt")
+
 
 func die():
-	pass
+	globalvariables.can_move = false
+	$player_animation.play("die")
+	await $player_animation.animation_finished
+	queue_free()
+	get_tree().reload_current_scene()
 
 func launch_up():
 	velocity.y = -600
@@ -194,13 +225,13 @@ func launch_up():
 
 
 func _on_player_animation_animation_finished() -> void:
-	if $player_animation.animation == "slash":
-		$attackarea/CollisionShape2D.disabled = true
-		basicattack = false
-	if $player_animation.animation == "hurt":
-		is_hurt = false
-		$player_animation.play("idle")
-
+	match $player_animation.animation:
+		"slash":
+			$attackarea/CollisionShape2D.disabled = true
+			basicattack = false
+		"hurt":
+			is_hurt = false
+			$player_animation.play("idle")
 
 func _on_dash_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
@@ -208,4 +239,3 @@ func _on_dash_attack_area_area_entered(area: Area2D) -> void:
 		enemy.take_damage(1)
 		enemy.velocity.x = dash_direction * 550
 		enemy.velocity.y = -300
-	

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bc2rilyhe43fc"]
+
+[ext_resource type="Script" uid="uid://db604qwu0wstp" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://daopeyx5dm7uq" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/Preview/Background.png" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://upiebnbg1mci" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="2_bqqt6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
+texture = ExtResource("1_ekxnf")
+modulate_color = Color(0.525894, 0.52589405, 0.525894, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+
+[node name="main_menu" type="Control" unique_id=1551639737]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1333603751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1554609206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -61.0
+offset_right = 146.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2121087690]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+text = "Start
+"
+
+[node name="tutorial" type="Button" parent="VBoxContainer" unique_id=672863737]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+text = "Tutorial
+"
+
+[node name="quit" type="Button" parent="VBoxContainer" unique_id=1006838528]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="." unique_id=1566043708]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -252.0
+offset_right = 467.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 29
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 75
+text = "Hollow Of The Knight"
+
+[node name="Label2" type="Label" parent="." unique_id=132822538]
+texture_filter = 1
+layout_mode = 0
+offset_left = 28.0
+offset_top = 605.0
+offset_right = 68.0
+offset_bottom = 628.0
+text = "v 1.0"
+
+[connection signal="pressed" from="VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

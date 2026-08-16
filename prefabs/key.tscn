@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://craolw0t1vvt2"]
+
+[ext_resource type="Script" uid="uid://bd2y3xxa3f2yl" path="res://scripts/key.gd" id="1_gqaf4"]
+[ext_resource type="Texture2D" uid="uid://bgrxdtw7jkkl0" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/key_large/key_A_gold.png" id="1_prtrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8w10"]
+size = Vector2(22, 35)
+
+[node name="key" type="Area2D" unique_id=148212373]
+z_index = -2
+script = ExtResource("1_gqaf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520570417]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_n8w10")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=333673003]
+texture_filter = 1
+texture = ExtResource("1_prtrg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
