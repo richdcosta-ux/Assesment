@@ -278,7 +278,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e13mp"]
-size = Vector2(70, 186)
+size = Vector2(18, 29)
 
 [sub_resource type="Animation" id="Animation_e13mp"]
 length = 0.001
@@ -317,7 +317,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2xa"]
-size = Vector2(49, 179)
+size = Vector2(19.5, 32.5)
 
 [sub_resource type="Animation" id="Animation_dwom6"]
 length = 0.001
@@ -356,7 +356,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a100"]
-size = Vector2(59, 166)
+size = Vector2(19, 35)
 
 [sub_resource type="Animation" id="Animation_15kfc"]
 length = 0.001
@@ -395,7 +395,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrdqu"]
-size = Vector2(78, 182)
+size = Vector2(21, 36)
 
 [sub_resource type="Animation" id="Animation_210s6"]
 length = 0.001
@@ -434,7 +434,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxgfo"]
-size = Vector2(36, 147)
+size = Vector2(22, 34.5)
 
 [sub_resource type="Animation" id="Animation_feaue"]
 length = 0.001
@@ -473,7 +473,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbw1o"]
-size = Vector2(69, 158)
+size = Vector2(22.5, 36)
 
 [sub_resource type="Animation" id="Animation_06rsu"]
 length = 0.001
@@ -512,7 +512,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kfc1"]
-size = Vector2(28, 204)
+size = Vector2(29, 39)
 
 [sub_resource type="Animation" id="Animation_gxgfo"]
 length = 0.001
@@ -551,7 +551,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gq6d"]
-size = Vector2(50, 176)
+size = Vector2(21, 36)
 
 [sub_resource type="Animation" id="Animation_mjrbb"]
 length = 0.001
@@ -653,7 +653,7 @@ texture = ExtResource("6_ckvwl")
 
 [node name="mushroom" parent="." unique_id=1650267243 instance=ExtResource("7_gbqnl")]
 z_index = -1
-position = Vector2(5393, 620)
+position = Vector2(5509, 620)
 
 [node name="killzone" parent="." unique_id=591210440 instance=ExtResource("8_ckvwl")]
 position = Vector2(641, 1032)
@@ -690,6 +690,7 @@ z_index = -1
 position = Vector2(4566, 359)
 
 [node name="tutorial_npc" parent="." unique_id=468576035 instance=ExtResource("14_0hilk")]
+z_index = -2
 position = Vector2(337, 702)
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1436228251]
@@ -717,7 +718,7 @@ libraries/ = SubResource("AnimationLibrary_ikfo1")
 [node name="Area2D" type="Area2D" parent="animated_text/Label" unique_id=1164309388]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label/Area2D" unique_id=120313871]
-position = Vector2(152, 242)
+position = Vector2(126, 320.5)
 shape = SubResource("RectangleShape2D_e13mp")
 
 [node name="Label2" type="Label" parent="animated_text" unique_id=1202362520]
@@ -735,7 +736,7 @@ libraries/ = SubResource("AnimationLibrary_dwom6")
 [node name="Area2D" type="Area2D" parent="animated_text/Label2" unique_id=834704196]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label2/Area2D" unique_id=340885242]
-position = Vector2(15, 64)
+position = Vector2(0.25, 137.25)
 shape = SubResource("RectangleShape2D_bl2xa")
 
 [node name="Label3" type="Label" parent="animated_text" unique_id=84989808]
@@ -752,7 +753,7 @@ libraries/ = SubResource("AnimationLibrary_15kfc")
 [node name="Area2D" type="Area2D" parent="animated_text/Label3" unique_id=239090559]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label3/Area2D" unique_id=1173476348]
-position = Vector2(19.5, 73)
+position = Vector2(-0.5, 138.5)
 shape = SubResource("RectangleShape2D_7a100")
 
 [node name="Label4" type="Label" parent="animated_text" unique_id=324962322]
@@ -772,7 +773,7 @@ libraries/ = SubResource("AnimationLibrary_feaue")
 [node name="Area2D" type="Area2D" parent="animated_text/Label4" unique_id=1700182419]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label4/Area2D" unique_id=317807862]
-position = Vector2(29, 81)
+position = Vector2(0.5, 154)
 shape = SubResource("RectangleShape2D_vrdqu")
 
 [node name="Label5" type="Label" parent="animated_text" unique_id=1640988362]
@@ -792,7 +793,7 @@ libraries/ = SubResource("AnimationLibrary_qbchm")
 position = Vector2(141, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label5/Area2D" unique_id=1576877592]
-position = Vector2(-28, 76)
+position = Vector2(-35, 132.25)
 shape = SubResource("RectangleShape2D_gxgfo")
 
 [node name="Label7" type="Label" parent="animated_text" unique_id=944902129]
@@ -811,7 +812,7 @@ libraries/ = SubResource("AnimationLibrary_gxgfo")
 [node name="Area2D" type="Area2D" parent="animated_text/Label7" unique_id=1489715378]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label7/Area2D" unique_id=1509268303]
-position = Vector2(185, 83)
+position = Vector2(161.75, 132)
 shape = SubResource("RectangleShape2D_sbw1o")
 
 [node name="Label16" type="Label" parent="animated_text" unique_id=1538097446]
@@ -831,13 +832,13 @@ libraries/ = SubResource("AnimationLibrary_mjrbb")
 [node name="Area2D" type="Area2D" parent="animated_text/Label16" unique_id=1876715042]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label16/Area2D" unique_id=1979737249]
-position = Vector2(100, 27)
+position = Vector2(100.5, 109.5)
 shape = SubResource("RectangleShape2D_7kfc1")
 
 [node name="Label6" type="Label" parent="animated_text" unique_id=2041624808]
-offset_left = 4989.0
+offset_left = 5086.0
 offset_top = 459.0
-offset_right = 5681.0
+offset_right = 5778.0
 offset_bottom = 635.0
 text = "\"M1\" or  \"Left Mouse Click\" to Attack
 
@@ -850,7 +851,7 @@ libraries/ = SubResource("AnimationLibrary_06rsu")
 [node name="Area2D" type="Area2D" parent="animated_text/Label6" unique_id=675166088]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animated_text/Label6/Area2D" unique_id=515360607]
-position = Vector2(-19, 83)
+position = Vector2(109, 179)
 shape = SubResource("RectangleShape2D_4gq6d")
 
 [node name="Label8" type="Label" parent="animated_text" unique_id=2025307725]
@@ -980,10 +981,22 @@ position = Vector2(3267, 582)
 position = Vector2(4179, 672)
 
 [node name="key7" parent="keys" unique_id=958308745 instance=ExtResource("17_vrdqu")]
-position = Vector2(4956, 578)
+position = Vector2(5194, 638)
 
 [node name="key8" parent="keys" unique_id=98770341 instance=ExtResource("17_vrdqu")]
 position = Vector2(4396, 363)
 
 [node name="PauseMenu" parent="." unique_id=1350059148 instance=ExtResource("18_cmspm")]
 visible = false
+
+[node name="pause_button" type="CanvasLayer" parent="." unique_id=1786666574]
+
+[node name="Button" type="Button" parent="pause_button" unique_id=34905380]
+offset_left = 1081.0
+offset_top = 32.0
+offset_right = 1122.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "||"
+
+[connection signal="pressed" from="pause_button/Button" to="PauseMenu" method="_on_button_pressed"]
