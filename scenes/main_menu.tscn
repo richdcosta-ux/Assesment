@@ -49,7 +49,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=2121087690]
+[node name="start" type="Button" parent="VBoxContainer" unique_id=2121087690]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -72,7 +73,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "Tutorial
+text = "Start
 "
 
 [node name="quit" type="Button" parent="VBoxContainer" unique_id=1006838528]

@@ -207,14 +207,23 @@ func take_damage(amount: int):
 	invincible_timer = invincible_time
 	velocity.x = -wall_direction * 200
 	$player_animation.play("hurt")
-
-
+	
+func respawn_player():
+	if globalvariables.checkpoint_scene == "":
+		get_tree().reload_current_scene()
+		return
+	get_tree().change_scene_to_file(globalvariables.checkpoint_scene)
+	await get_tree().process_frame
+	print("Respawning from autoload:", globalvariables)
+	var player_root = get_tree().current_scene.find_child("player", true, false)
+	if player_root:
+		var real_player = player_root.get_node("CharacterBody2D")
+		real_player.global_position = globalvariables.checkpoint_position
+	else:
+		print("ERROR: Player not found in scene!")
 func die():
-	globalvariables.can_move = false
-	$player_animation.play("die")
-	await $player_animation.animation_finished
-	queue_free()
-	get_tree().reload_current_scene()
+	respawn_player()
+	
 
 func launch_up():
 	velocity.y = -600

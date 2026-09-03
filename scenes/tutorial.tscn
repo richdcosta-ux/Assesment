@@ -666,6 +666,11 @@ z_index = -1
 position = Vector2(4589, 697)
 scale = Vector2(0.2, 0.2)
 
+[node name="slime_launch_pad2" parent="." unique_id=1230915688 instance=ExtResource("10_0epgs")]
+z_index = -1
+position = Vector2(4776, 561)
+scale = Vector2(0.2, 0.2)
+
 [node name="next_level_portal" parent="." unique_id=269172372 instance=ExtResource("9_nlqja")]
 position = Vector2(6728, 352)
 
@@ -950,6 +955,26 @@ rotation = -2.3195426
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = ">>>"
+
+[node name="Label18" type="Label" parent="animated_text" unique_id=579190148]
+offset_left = 4242.0
+offset_top = 345.00006
+offset_right = 4270.0
+offset_bottom = 374.69757
+rotation = -5.953278
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = ">>>"
+
+[node name="Label19" type="Label" parent="animated_text" unique_id=1589185699]
+offset_left = 4130.0107
+offset_top = 314.22577
+offset_right = 4333.0107
+offset_bottom = 343.92328
+rotation = -6.2892237
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "[Under Development !! ^^]"
 
 [node name="Label15" type="Label" parent="animated_text" unique_id=1995539124]
 offset_left = 3915.9998
