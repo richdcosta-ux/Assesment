@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cip853hq7a7i7"]
 
 [ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="1_c13y7"]
+[ext_resource type="Script" uid="uid://bpout0jvwe7fr" path="res://scripts/tutorial_global.gd" id="1_ikfo1"]
 [ext_resource type="Texture2D" uid="uid://ct4fns1iw56j2" path="res://assets/Forest of Illusion Files/Forest of Illusion Files/Assets/Layers/tiles.png" id="2_8ho6b"]
 [ext_resource type="Texture2D" uid="uid://bg6ikt21mpa4l" path="res://assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 1/1.png" id="3_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://qayx5i0eawou" path="res://assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 1/2.png" id="4_6yjpi"]
@@ -593,9 +594,10 @@ _data = {
 size = Vector2(42, 182)
 
 [node name="tutorial" type="Node2D" unique_id=243349125]
+script = ExtResource("1_ikfo1")
 
 [node name="player" parent="." unique_id=1766685512 instance=ExtResource("1_c13y7")]
-position = Vector2(59, 702)
+position = Vector2(107, 362)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1177463147]
 scale = Vector2(2, 2)

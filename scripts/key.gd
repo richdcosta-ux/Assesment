@@ -1,4 +1,5 @@
 extends Area2D
+@onready var tutorial: Node2D = $"../.."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		save_checkpoint(body)
 		queue_free()
+		
 func save_checkpoint(player):
+	#tutorial.player_spawn_x = global_position.x
+	#tutorial.player_spawn_y = global_position.y
+	globalvariables.checkpoint_position = global_position
+	print(tutorial.player_spawn_x)
 	globalvariables.checkpoint_position = player.global_position
 	globalvariables.checkpoint_scene = get_tree().current_scene.scene_file_path
 	print("Checkpoint saved at:", globalvariables.checkpoint_position)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player_animation = $player_animation
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
+@onready var tutorial: Node2D = $"../.."
 
 
 @export var max_health := 5
@@ -248,3 +249,6 @@ func _on_dash_attack_area_area_entered(area: Area2D) -> void:
 		enemy.take_damage(1)
 		enemy.velocity.x = dash_direction * 550
 		enemy.velocity.y = -300
+
+func _ready() -> void:
+	global_position = globalvariables.checkpoint_position #Vector2(tutorial.player_spawn_x, tutorial.player_spawn_y)
