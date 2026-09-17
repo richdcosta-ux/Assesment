@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b11duu50e3omo"]
+
+[ext_resource type="Texture2D" uid="uid://cpf27y58loppa" path="res://assets/mossy area/Mossy - FloatingPlatforms.png" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="2_72e8q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72e8q"]
+texture = ExtResource("1_s3esy")
+texture_region_size = Vector2i(100, 100)
+44:53/0 = 0
+44:54/0 = 0
+44:55/0 = 0
+44:56/0 = 0
+44:57/0 = 0
+45:58/0 = 0
+45:59/0 = 0
+45:60/0 = 0
+45:61/0 = 0
+45:62/0 = 0
+45:63/0 = 0
+45:64/0 = 0
+45:65/0 = 0
+45:66/0 = 0
+45:67/0 = 0
+46:68/0 = 0
+46:69/0 = 0
+46:70/0 = 0
+46:71/0 = 0
+46:72/0 = 0
+46:73/0 = 0
+46:74/0 = 0
+46:75/0 = 0
+46:76/0 = 0
+47:77/0 = 0
+47:78/0 = 0
+47:79/0 = 0
+47:80/0 = 0
+47:81/0 = 0
+47:82/0 = 0
+62:53/0 = 0
+61:53/0 = 0
+60:53/0 = 0
+59:53/0 = 0
+58:53/0 = 0
+57:54/0 = 0
+56:54/0 = 0
+55:54/0 = 0
+54:54/0 = 0
+53:54/0 = 0
+52:54/0 = 0
+51:54/0 = 0
+50:54/0 = 0
+49:55/0 = 0
+48:55/0 = 0
+47:55/0 = 0
+46:55/0 = 0
+45:55/0 = 0
+48:54/0 = 0
+49:56/0 = 0
+50:57/0 = 0
+50:58/0 = 0
+51:59/0 = 0
+52:60/0 = 0
+52:61/0 = 0
+53:62/0 = 0
+5:0/size_in_atlas = Vector2i(10, 4)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-497.8352, -153.38708, 513.98126, -137.24109, 503.21722, 201.82507, -444.01517, 180.29706)
+
+[sub_resource type="TileSet" id="TileSet_d2op2"]
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_72e8q")
+
+[node name="main_game" type="Node2D" unique_id=1067115540]
+
+[node name="player" parent="." unique_id=1766685512 instance=ExtResource("2_72e8q")]
+position = Vector2(201, 265)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=190910348]
+position = Vector2(-3.9999998, 725)
+scale = Vector2(0.2, 0.2)
+tile_set = SubResource("TileSet_d2op2")
+format = 2
+layer_0/tile_data = PackedInt32Array(917535, 327680, 0)

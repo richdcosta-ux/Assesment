@@ -508,6 +508,7 @@ size = Vector2(30, 27)
 [node name="player" type="Node2D" unique_id=1766685512 groups=["player"]]
 z_index = -1
 scale = Vector2(2, 2)
+metadata/_edit_group_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=253842989 groups=["player"]]
 collision_layer = 3
