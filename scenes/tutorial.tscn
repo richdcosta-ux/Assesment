@@ -618,6 +618,9 @@ texture = ExtResource("3_ph3nu")
 position = Vector2(576, 0)
 texture = ExtResource("3_ph3nu")
 
+[node name="next_level_portal" parent="ParallaxBackground/ParallaxLayer" unique_id=269172372 instance=ExtResource("9_nlqja")]
+position = Vector2(54.887222, 51.8797)
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1734402528]
 position = Vector2(288, 600)
 motion_scale = Vector2(0.7, 0.7)
@@ -673,7 +676,7 @@ z_index = -1
 position = Vector2(4776, 561)
 scale = Vector2(0.2, 0.2)
 
-[node name="next_level_portal" parent="." unique_id=269172372 instance=ExtResource("9_nlqja")]
+[node name="next_level_portal" parent="." unique_id=727265075 instance=ExtResource("9_nlqja")]
 position = Vector2(6728, 352)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="next_level_portal" unique_id=1129290478]

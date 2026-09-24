@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cjibp7dvvq5t1"]
 
 [ext_resource type="Texture2D" uid="uid://bjlw6dt4u556q" path="res://assets/mossy area/Mossy - TileSet.png" id="1_014kd"]
+[ext_resource type="Script" uid="uid://3y0o2lwwmg1x" path="res://scripts/level_1.gd" id="1_15mv3"]
 [ext_resource type="Texture2D" uid="uid://dhwy35alfkssc" path="res://assets/mossy area/Mossy - Decorations&Hazards.png" id="2_7nomh"]
 [ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://bu71gjcha1w0d" path="res://scenes/killzone.tscn" id="3_rus8k"]
@@ -299,6 +300,7 @@ sources/0 = SubResource("TileSetAtlasSource_x2fux")
 distance = -1149.0
 
 [node name="level1" type="Node2D" unique_id=1061009512]
+script = ExtResource("1_15mv3")
 
 [node name="platforms" type="TileMapLayer" parent="." unique_id=1529662245]
 position = Vector2(-43.000004, -77)
@@ -307,7 +309,7 @@ tile_map_data = PackedByteArray("AAD7/w4AAAAAAAAAAAD9/w4AAAABAAAAAAD8/w4AAAABAAA
 tile_set = SubResource("TileSet_rus8k")
 
 [node name="untouched_object" type="TileMapLayer" parent="." unique_id=1566283377]
-z_index = -1
+z_index = -2
 scale = Vector2(0.095, 0.095)
 tile_map_data = PackedByteArray("AAAiACgAAgAAAAAAAAAfAPsBAAAFACMAAAC6AP0BAAAPACQAAAC6AQYCAAAGABoAAAD8AQQCAAAPABsAAADvAq0BAAALAB4AAAAlBOUAAAALAB4AAAB7A14BAAAQAB4AAAD3AroAAAAAAB4AAAD8AN4BAAAaABkAAADfAN4BAAAVABkAAABKAN4BAAAkABkAAAAvArQBAAAVABkAAABMAtQBAAAQAB4AAABiAtQBAAAQAB4AAABUAtwBAAAFAB8AAAA/AtMBAAAAAB4AAABvAtABAAAFACMAAACAA2MBAAAFAB8AAACJA1oBAAAFACMAAACMA1gBAAAFACMAAACTA1gBAAAFACMAAACjA1kBAAAAAB4AAACyA1kBAAAAAB4AAAB2AAECAAAGABoAAABIAAECAAAGABoAAABLAAICAAAFAB8AAABAAAICAAAFAB8AAABTAAYCAAAFAB8AAAA6AAYCAAAFAB8AAABkAP0BAAAQAB4AAABQAP0BAAAQAB4AAAA9AP8BAAAQAB4AAABbA+IAAAABACMAAACZA+MAAAAPACQAAADAA8UAAAAVABkAAADTA8IAAAAkABkAAADtA+QAAAABACMAAADzA+MAAAAAAB4AAAD0A+UAAAAAAB4AAAD0A+YAAAABACMAAAD5A+UAAAAAAB4AAAD6A+UAAAABACMAAAD6A+YAAAABACMAAAD/A+UAAAAAAB4AAAD/A+cAAAABACMAAAAPBOgAAAAGABoAAAADA7IBAAAPABsAAAAdA7EBAAAPABsAAAALA7IBAAAFAB8AAADVAqkBAAAAAB4AAADnAAcCAAAPABsAAAAAAQYCAAAPABsAAACzA+sAAAAPABsAAADSA+sAAAAPABsAAAB9A+kAAAAMACQAAACQBDgBAAAMACQAAAC+AfMBAAABAAEAAAB2AQMCAAAAABoAAADNAzwBAAAaABkAAADOAzwBAAAaABkAAAA=")
 tile_set = SubResource("TileSet_tr1x6")
