@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4ca0ig0uumdo"]
+
+[ext_resource type="Script" uid="uid://d3lio46v658nf" path="res://scripts/healthpotion.gd" id="1_4rvls"]
+[ext_resource type="Texture2D" uid="uid://dcfa763dqwh2b" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_large/potion_A_red_full.png" id="2_wg456"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgwlw"]
+
+[node name="healthpotion" type="Area2D" unique_id=1281978738]
+script = ExtResource("1_4rvls")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052108278]
+texture_filter = 1
+texture = ExtResource("2_wg456")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901420818]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_dgwlw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

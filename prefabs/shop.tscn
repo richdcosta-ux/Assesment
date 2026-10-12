@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cxu206sctbgdk"]
 
 [ext_resource type="Script" uid="uid://d2y757qbbublo" path="res://scripts/shop.gd" id="1_10k27"]
-[ext_resource type="Texture2D" uid="uid://dsef4f5bilj7i" path="res://assets/Pixel Adventure 1/Free/Items/Fruits/Apple.png" id="2_eu8to"]
+[ext_resource type="Texture2D" uid="uid://d5wmfeno2yv" path="res://assets/loot/Super Pixel Objects Sample/outline_none/potion_large/potion_A_red_full.png" id="2_0og15"]
 [ext_resource type="Texture2D" uid="uid://cctd3qphkm0r" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_blue_full.png" id="3_hxg2x"]
+[ext_resource type="Texture2D" uid="uid://dsbn1888fva76" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_large/potion_A_red_half.png" id="3_qtrui"]
+[ext_resource type="Texture2D" uid="uid://dd5418a4pc7xc" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_large/potion_A_empty.png" id="4_kupta"]
 [ext_resource type="Texture2D" uid="uid://nj27xmeq27lj" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_blue_half.png" id="4_pba2h"]
 [ext_resource type="Texture2D" uid="uid://swvhglbhoo1" path="res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_small/potion_C_empty.png" id="5_qpdnj"]
 [ext_resource type="Script" uid="uid://cisvp78w0uetq" path="res://scripts/gold.gd" id="6_pba2h"]
@@ -60,131 +62,25 @@ _data = {
 &"transout": SubResource("Animation_eu8to")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wamvd"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r07nn"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxg2x"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pba2h"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpdnj"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1wnk"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0og15"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtrui"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kupta"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(256, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy5wk"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0x1jk"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3smi3"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuj4w"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(384, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6d8d"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(416, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uytwk"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(448, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7is4"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(480, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqj18"]
-atlas = ExtResource("2_eu8to")
-region = Rect2(512, 0, 32, 32)
+atlas = ExtResource("2_0og15")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fyusp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wamvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r07nn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hxg2x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pba2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qpdnj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k1wnk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0og15")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qtrui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kupta")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_fy5wk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0x1jk")
+"texture": ExtResource("3_qtrui")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3smi3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xuj4w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x6d8d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uytwk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p7is4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqj18")
+"texture": ExtResource("4_kupta")
 }],
 "loop": true,
-"name": &"Apple",
-"speed": 15.0
+"name": &"Health Potion",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -240,10 +136,11 @@ offset_bottom = 40.0
 
 [node name="animsprite" type="AnimatedSprite2D" parent="Control" unique_id=886201024]
 texture_filter = 1
-position = Vector2(578.00006, 319.00003)
-scale = Vector2(5, 5)
+position = Vector2(578, 300)
+scale = Vector2(3.1249998, 2.8750014)
 sprite_frames = SubResource("SpriteFrames_fyusp")
-animation = &"Apple"
+animation = &"Health Potion"
+frame_progress = 0.5689429
 
 [node name="name" type="Label" parent="Control" unique_id=1188257934]
 texture_filter = 1
@@ -260,7 +157,7 @@ offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
-text = "Apple"
+text = "Health Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -274,7 +171,7 @@ offset_right = 699.0
 offset_bottom = 399.0
 theme_override_font_sizes/font_size = 16
 text = "(Regenerates health)
-Cost: 50"
+Cost: 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

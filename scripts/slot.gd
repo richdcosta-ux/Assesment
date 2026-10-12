@@ -38,6 +38,19 @@ func _input(event: InputEvent) -> void:
 			get_node("../../iteminfo").itemdes = itemdes
 			get_node("../../iteminfo").itemcost = itemcost
 			get_node("../../iteminfo").itemcount = itemcount
+			get_node("../../iteminfo").itemicon = get_node("icon").texture
 			get_node("../../iteminfo/anim").play("transin")
 			get_node("../../iteminfo").updateinfo()
 			get_node("../..").process_mode = Node.PROCESS_MODE_DISABLED
+func use_item():
+	print("Using:", itemname)
+	if itemname == "Health Potion":
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.health += 3
+			player.health = min(player.health, player.max_health)
+			player.update_health_bar()
+		itemcount -= 1
+		get_node("count").text = str(itemcount)
+		if itemcount <= 0:
+			hasitem = false

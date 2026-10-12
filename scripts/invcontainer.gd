@@ -15,15 +15,23 @@ func fillinventoryslots():
 		get_child(i).itemcost = 0
 		get_child(i).itemcount = 0
 		get_child(i).hasitem = false 
+		get_child(i).get_node("count").text = ""
+		get_child(i).get_node("icon").texture = null
+		
 	
 	#fills inv into slots
 	var keys = global.inventory.keys()
 	keys.sort()
 	for i in keys:
+		print("Setting icon:", global.inventory[i]["name"])
 		get_child(i).itemname = global.inventory[i]["name"]
 		get_child(i).itemdes = global.inventory[i]["des"]
 		get_child(i).itemcost = global.inventory[i]["cost"]
 		get_child(i).itemcount = global.inventory[i]["count"]
 		get_child(i).get_node("count").text = str(global.inventory[i]["count"])
+		print(global.inventory[i]["icon"])
+		var icon = get_child(i).get_node("icon")
+		icon.texture = global.inventory[i]["icon"]
+		icon.visible = true
 		get_child(i).get_node("icon").texture = global.inventory[i]["icon"]
 		get_child(i).hasitem = true

@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_close_pressed() -> void:
+
 	get_node("anim").play("transout")
 
 func _input(event: InputEvent) -> void:

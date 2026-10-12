@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
+@onready var healthbar: ProgressBar = $"../healthbar"
+
 @onready var root_scene = get_tree().current_scene
 @onready var player_animation = $player_animation
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var sprite = $player_animation
 @onready var tutorial: Node2D = $"../.."
+@onready var hp: ProgressBar = $"../../CanvasLayer/hp"
 
 
 @export var max_health := 5
@@ -21,6 +24,7 @@ extends CharacterBody2D
 @export_range(0, 1) var deceleration = 0.2
 @export_range(0, 1) var decelerate_on_jump_release = 0.5
 
+var health_potions = 0
 var basicattack = false;
 var movement = Vector2();
 var is_dashing = false
@@ -43,10 +47,10 @@ var hurt_timer := 0.0
 
 
 func _physics_process(delta: float) -> void:
-	if not globalvariables.can_move or global.shop_open:
-		$player_animation.play("idle")
-		$player_animation.flip_h = velocity.x < 0
-		return
+	if is_hurt:
+		hurt_timer -= delta
+		if hurt_timer <= 0:
+			is_hurt = false
 	if Input.is_action_just_pressed("pause"):
 		var pause_menu = get_tree().current_scene.get_node("PauseMenu")
 		pause_menu.open_pause()
@@ -90,9 +94,10 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_released("jump"):
 		velocity.y *= decelerate_on_jump_release
-		
-		
-		
+	if not globalvariables.can_move or global.shop_open:
+		$player_animation.play("idle")
+		$player_animation.flip_h = velocity.x < 0
+		return
 	
 	#Handle speed/movements.
 	var speed 
@@ -198,6 +203,23 @@ func take_damage(amount: int):
 	if is_hurt:
 		return
 	health -= amount
+	update_health_bar()
+	if health <= 0:
+		die()
+		return
+	basicattack = false
+	$attackarea/CollisionShape2D.disabled = true
+	is_hurt = true
+	invincible = true
+	invincible_timer = invincible_time
+	print("Player health:", health)
+	if health <= 0:
+		print("PLAYER SHOULD DIE NOW")
+		die()
+		return
+	is_hurt = true
+	hurt_timer = 0.5
+
 	if health <= 0:
 		is_hurt = false
 		invincible = false
@@ -223,6 +245,10 @@ func respawn_player():
 	else:
 		print("ERROR: Player not found in scene!")
 func die():
+	print("PLAYER DIED")
+	health = max_health
+	
+	update_health_bar()
 	respawn_player()
 	
 
@@ -246,9 +272,18 @@ func _on_player_animation_animation_finished() -> void:
 func _on_dash_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		var enemy = area.get_parent()
-		enemy.take_damage(1)
-		enemy.velocity.x = dash_direction * 550
-		enemy.velocity.y = -300
-
+		enemy.take_damage(1, global_position)
+		enemy.velocity.x = dash_direction * 350
+		enemy.velocity.y = -100
+		
+		
+func update_health_bar():
+	var health_bar = get_tree().current_scene.get_node("CanvasLayer/hp")
+	health_bar.max_value = max_health
+	health_bar.value = health
 func _ready() -> void:
+	health = max_health
+	hp.max_value = max_health
+	hp.value = health
 	global_position = globalvariables.checkpoint_position #Vector2(tutorial.player_spawn_x, tutorial.player_spawn_y)
+	update_health_bar()

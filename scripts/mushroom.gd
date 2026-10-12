@@ -15,8 +15,8 @@ func _process(delta: float) -> void:
 		global_position.x += velocity.x * delta
 		return
 	velocity.x = move_toward(velocity.x, 0, 20)
-	if player_in_range and can_attack and not dead:
-		attack()
+	#if player_in_range and can_attack and not dead:
+		#attack()
 func attack():
 	can_attack = false
 	$AnimatedSprite2D.play("attack")

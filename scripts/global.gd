@@ -1,12 +1,14 @@
 extends Node
 var shop_open = false
-var gold = 1000
+var gold = 10
+
 var item = {
 	0: {
-		"name": "Apple",
-		"des": "(Regenerates health)",
-		"cost": 50,
-		"icon": preload("res://assets/Pixel Adventure 1/Free/Items/Fruits/Apple.png")
+		"name": "Health Potion",
+		"des": "(Restores HP)",
+		"cost": 10,
+		"icon": preload("res://assets/loot/Super Pixel Objects Sample/outline_dark/potion_large/potion_A_red_full.png")
+
 	},
 	1: {
 		"name": "Speed Potion",
@@ -16,12 +18,4 @@ var item = {
 	}
 }
 
-var inventory = {
-	0: {
-		"name": "Apple",
-		"des": "(Regenerates health)",
-		"cost": 50,
-		"icon": preload("res://assets/Pixel Adventure 1/Free/Items/Fruits/Apple.png"),
-		"count": 1
-	},
-}
+var inventory = {}
