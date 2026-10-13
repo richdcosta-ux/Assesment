@@ -2,6 +2,7 @@ extends Area2D
 
 
 var health = 3
+# Prevents multiple deaths
 var dead = false;
 var can_attack = true
 var attack_cooldown = 0.8
@@ -14,14 +15,17 @@ func _process(delta: float) -> void:
 		stun_timer -= delta
 		global_position.x += velocity.x * delta
 		return
+	# Slowly stop moving after knockback
 	velocity.x = move_toward(velocity.x, 0, 20)
 	#if player_in_range and can_attack and not dead:
 		#attack()
 func attack():
 	can_attack = false
 	$AnimatedSprite2D.play("attack")
+	# Damage player if still in range
 	if player_in_range:
 		get_tree().call_group("player", "take_damage", 1)
+	# Wait before next attack
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
@@ -40,6 +44,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("sword") and not dead:
 		health -= 1
 		var player = area.get_parent()
+		# Get player position for knockback direction
 		var direction = sign(global_position.x - player.global_position.x)
 		velocity.x = direction * 120
 		stun_timer = 0.2

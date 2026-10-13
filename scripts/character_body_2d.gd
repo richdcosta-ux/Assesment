@@ -46,7 +46,8 @@ var is_hurt = false
 var hurt_timer := 0.0
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
+	# Handles movement, jumping, dashing, wall cling.
 	if is_hurt:
 		hurt_timer -= delta
 		if hurt_timer <= 0:
@@ -158,6 +159,7 @@ func _physics_process(delta: float) -> void:
 		player_attack()
 	
 func start_dash(direction) -> void:
+	# Starts player dash movement
 		$dash_attack_area/CollisionShape2D.disabled = false
 		$player_animation.play("dash")
 	#dash activation
@@ -189,17 +191,20 @@ func start_dash(direction) -> void:
 		tween.tween_callback(end_dash)
 	
 func end_dash() -> void:
+	# Ends dash and restores collision
 	is_dashing = false
 	set_collision_layer_value(1, true)
 	$dash_attack_area/CollisionShape2D.disabled = true
 	
 func player_attack():
+	# Plays sword attack
 	basicattack = true
 	$player_animation.play("slash")
 	$attackarea/CollisionShape2D.disabled = false
 	await $player_animation.animation_finished
 	
 func take_damage(amount: int):
+	# Damages player
 	if is_hurt:
 		return
 	health -= amount
@@ -232,6 +237,7 @@ func take_damage(amount: int):
 	$player_animation.play("hurt")
 	
 func respawn_player():
+	# Respawns player at checkpoint
 	if globalvariables.checkpoint_scene == "":
 		get_tree().reload_current_scene()
 		return
@@ -245,7 +251,6 @@ func respawn_player():
 	else:
 		print("ERROR: Player not found in scene!")
 func die():
-	print("PLAYER DIED")
 	health = max_health
 	
 	update_health_bar()

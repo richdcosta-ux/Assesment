@@ -369,6 +369,27 @@ bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nomh"]
 size = Vector2(41, 854)
 
+[sub_resource type="Gradient" id="Gradient_7nomh"]
+offsets = PackedFloat32Array(0, 0.23138298, 0.53457445, 0.8324468, 0.94414896, 1)
+colors = PackedColorArray(4.0911138e-07, 0.6703069, 0.0071566575, 1, 0.55006886, 0.63425434, 0.0020746696, 1, 0.55346656, 0.55798644, 9.62615e-07, 1, 0.44573334, 0.63500243, 8.718023e-07, 1, 0.32507214, 0.7212603, 7.70092e-07, 1, 0.0007508645, 0.012617188, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7nomh"]
+gradient = SubResource("Gradient_7nomh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2xxo"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1500, 600, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 300.0
+gravity = Vector3(0, 5, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 0.99999774
+scale_min = 2.0
+scale_max = 6.0
+color_ramp = SubResource("GradientTexture1D_7nomh")
+turbulence_enabled = true
+
 [node name="level1" type="Node2D" unique_id=1061009512]
 script = ExtResource("1_15mv3")
 
@@ -530,6 +551,13 @@ shape = SubResource("RectangleShape2D_7nomh")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="barrier" unique_id=389834488]
 position = Vector2(5240, 287)
 shape = SubResource("RectangleShape2D_7nomh")
+
+[node name="fireflys" type="GPUParticles2D" parent="." unique_id=968543586]
+position = Vector2(813, 441)
+amount = 200
+lifetime = 50.0
+visibility_rect = Rect2(-200, -300, 1000, 700)
+process_material = SubResource("ParticleProcessMaterial_x2xxo")
 
 [connection signal="body_entered" from="wavetrigger" to="wavetrigger" method="_on_body_entered"]
 [connection signal="pressed" from="pause_button/Button" to="PauseMenu" method="_on_button_pressed"]

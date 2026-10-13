@@ -776,6 +776,27 @@ bg_color = Color(0.25565878, 0.2556588, 0.2556587, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsei3"]
 size = Vector2(51, 844)
 
+[sub_resource type="Gradient" id="Gradient_qsei3"]
+offsets = PackedFloat32Array(0, 0.36968085, 0.72606385, 1)
+colors = PackedColorArray(0.1663743, 0.1663743, 0.1663743, 1, 0.79592854, 0.9058368, 0.007918086, 1, 0.7079074, 0.7135744, 7.70092e-07, 1, 0.18072194, 0.18072197, 0.18072197, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1s4pk"]
+gradient = SubResource("Gradient_qsei3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_im68a"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1500, 600, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 300.0
+gravity = Vector3(0, 5, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 0.99999774
+scale_min = 2.0
+scale_max = 6.0
+color_ramp = SubResource("GradientTexture1D_1s4pk")
+turbulence_enabled = true
+
 [node name="level_2" type="Node2D" unique_id=1247215788]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=545934975]
@@ -1217,6 +1238,13 @@ shape = SubResource("RectangleShape2D_qsei3")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="barrier" unique_id=1734020897]
 position = Vector2(3260, 74)
 shape = SubResource("RectangleShape2D_qsei3")
+
+[node name="fireflys" type="GPUParticles2D" parent="." unique_id=109192905]
+position = Vector2(813, 441)
+amount = 200
+lifetime = 50.0
+visibility_rect = Rect2(-200, -300, 1000, 700)
+process_material = SubResource("ParticleProcessMaterial_im68a")
 
 [connection signal="body_entered" from="wavetriggerv_2" to="wavetriggerv_2" method="_on_body_entered"]
 [connection signal="pressed" from="pause_button/Button" to="PauseMenu" method="_on_button_pressed"]
