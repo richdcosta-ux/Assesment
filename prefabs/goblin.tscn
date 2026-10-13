@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dc6836h2afy8c" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Take Hit.png" id="5_hpaq6"]
 [ext_resource type="PackedScene" uid="uid://bd1jqa2yque53" path="res://prefabs/healthbar.tscn" id="7_hpaq6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qpej"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qpej"]
+size = Vector2(31.600006, 39.150005)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1iws"]
 atlas = ExtResource("1_6rv1i")
@@ -252,8 +253,9 @@ health = 3
 health_potion_scene = ExtResource("2_5qpej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64779789]
-position = Vector2(2, 9)
-shape = SubResource("CapsuleShape2D_5qpej")
+position = Vector2(0.39999986, 8.799999)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_5qpej")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=789173283]
 texture_filter = 1

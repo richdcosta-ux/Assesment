@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://br4r5douj86ei" path="res://prefabs/player.tscn" id="3_eqxsl"]
 [ext_resource type="FontFile" uid="uid://b3gvdco63k1aa" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Black.ttf" id="7_5o1fx"]
 [ext_resource type="Texture2D" uid="uid://kpj2yik2n6fn" path="res://assets/PlantsAnimated/Vegetation/Group Plant/GroupPlants_00000.png" id="7_ngxfi"]
+[ext_resource type="FontFile" uid="uid://4tgoho7x2hxl" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="8_8a5vo"]
 [ext_resource type="Texture2D" uid="uid://cxcf2dumw58xh" path="res://assets/PlantsAnimated/Vegetation/Group Plant/GroupPlants_00001.png" id="8_kq2c3"]
+[ext_resource type="Script" uid="uid://cisvp78w0uetq" path="res://scripts/gold.gd" id="9_3s3h6"]
 [ext_resource type="Texture2D" uid="uid://k7fh55ipxlj0" path="res://assets/PlantsAnimated/Vegetation/Group Plant/GroupPlants_00002.png" id="9_v8uj3"]
 [ext_resource type="Texture2D" uid="uid://dj2xsdl00html" path="res://assets/PlantsAnimated/Vegetation/Group Plant/GroupPlants_00003.png" id="10_ujbrj"]
 [ext_resource type="Texture2D" uid="uid://cn1iun5fop4lf" path="res://assets/PlantsAnimated/Vegetation/Group Plant/GroupPlants_00004.png" id="11_m6wqs"]
@@ -128,6 +130,7 @@
 [ext_resource type="PackedScene" uid="uid://dj63nmwshjahm" path="res://prefabs/pause_menu.tscn" id="125_x8ksm"]
 [ext_resource type="PackedScene" uid="uid://bu71gjcha1w0d" path="res://scenes/killzone.tscn" id="127_hkjkl"]
 [ext_resource type="PackedScene" uid="uid://cfon62frbjft7" path="res://scenes/next_level_portal.tscn" id="128_qsei3"]
+[ext_resource type="PackedScene" uid="uid://hd1e8nvk8c3p" path="res://prefabs/shop_npc.tscn" id="129_im68a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
 texture = ExtResource("1_wo48x")
@@ -899,6 +902,16 @@ theme_override_fonts/font = ExtResource("7_5o1fx")
 theme_override_font_sizes/font_size = 40
 text = "Wave: 1"
 
+[node name="gold" type="Label" parent="CanvasLayer" unique_id=1589586289]
+offset_left = 43.0
+offset_top = 64.0
+offset_right = 97.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("8_8a5vo")
+theme_override_font_sizes/font_size = 20
+text = "Gold: 0"
+script = ExtResource("9_3s3h6")
+
 [node name="animated_plants" type="Node" parent="." unique_id=251432118]
 
 [node name="group_plants" type="Node" parent="animated_plants" unique_id=843973060]
@@ -1228,6 +1241,7 @@ shape = SubResource("WorldBoundaryShape2D_hkjkl")
 [node name="next_level_portal" parent="." unique_id=269172372 instance=ExtResource("128_qsei3")]
 position = Vector2(2663, 255)
 scale = Vector2(2.5, 2.5)
+next_scene = "res://scenes/gamecomplete.tscn"
 
 [node name="barrier" type="StaticBody2D" parent="." unique_id=1998768910]
 
@@ -1245,6 +1259,10 @@ amount = 200
 lifetime = 50.0
 visibility_rect = Rect2(-200, -300, 1000, 700)
 process_material = SubResource("ParticleProcessMaterial_im68a")
+
+[node name="shop_npc" parent="." unique_id=1503030385 instance=ExtResource("129_im68a")]
+z_index = -2
+position = Vector2(70, 480)
 
 [connection signal="body_entered" from="wavetriggerv_2" to="wavetriggerv_2" method="_on_body_entered"]
 [connection signal="pressed" from="pause_button/Button" to="PauseMenu" method="_on_button_pressed"]

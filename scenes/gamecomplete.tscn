@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dohoclq8hsf8f"]
+
+[ext_resource type="Texture2D" uid="uid://c6qlbpjxw63qb" path="res://assets/Font/Cinzel_Decorative/Hollow of the knight.png" id="1_46ylt"]
+[ext_resource type="Script" uid="uid://d0ar3il27b3xu" path="res://scripts/gamecomplete.gd" id="1_te77x"]
+[ext_resource type="FontFile" uid="uid://4tgoho7x2hxl" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="2_te77x"]
+[ext_resource type="FontFile" uid="uid://upiebnbg1mci" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="3_xfd78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kco72"]
+font = ExtResource("3_xfd78")
+font_size = 30
+
+[node name="gamecomplete" type="Control" unique_id=982684743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_te77x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1693177277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_46ylt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=364356042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="Label" type="Label" parent="." unique_id=914958134]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 127.0
+offset_right = 845.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("2_te77x")
+theme_override_font_sizes/font_size = 46
+text = "CONGRATULATIONS!"
+
+[node name="Label2" type="Label" parent="." unique_id=414179895]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 204.0
+offset_right = 786.0
+offset_bottom = 389.0
+theme_override_fonts/font = ExtResource("3_xfd78")
+theme_override_font_sizes/font_size = 32
+text = "You have completed
+Hollow of the Knight
+
+Thank you for playing!"
+label_settings = SubResource("LabelSettings_kco72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=78446265]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 431.0
+offset_right = 729.0
+offset_bottom = 566.0
+theme_override_fonts/font = ExtResource("3_xfd78")
+theme_override_font_sizes/font_size = 32
+text = "Enemies Defeated: 0
+"
+label_settings = SubResource("LabelSettings_kco72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=505454771]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 569.0
+offset_right = 1030.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_te77x")
+theme_override_font_sizes/font_size = 24
+text = "Return To Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

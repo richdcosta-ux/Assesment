@@ -82,6 +82,8 @@ func take_damage(amount, attacker_position):
 	healthbar.health = health
 func die():
 	dead = true
+	global.gold += 1
+	global.enemies_defeated += 1
 	enemy_died.emit()
 	if randf() < 0.1:
 		var potion = health_potion_scene.instantiate()

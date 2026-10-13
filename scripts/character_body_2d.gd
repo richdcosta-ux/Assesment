@@ -153,42 +153,44 @@ func _physics_process(delta: float) -> void:
 			$player_animation.play("idle")
 	$player_animation.flip_h = velocity.x < 0
 	
-	if Input.is_action_just_pressed("dash") and direction != 0 and dash_timer <= 0:
+	if Input.is_action_just_pressed("dash") and direction != 0 and dash_timer <= 0 and !basicattack:
 		start_dash(direction)
 	if Input.is_action_just_pressed("attack") and not basicattack and not is_dashing:
 		player_attack()
 	
 func start_dash(direction) -> void:
 	# Starts player dash movement
-		$dash_attack_area/CollisionShape2D.disabled = false
-		$player_animation.play("dash")
+	if basicattack:
+		return
+	$dash_attack_area/CollisionShape2D.disabled = false
+	$player_animation.play("dash")
 	#dash activation
-		is_dashing = true
-		dash_direction = direction
-		if dash_direction == 0:
-			dash_direction = -1 if $player_animation.flip_h else 1
-		dash_timer = dash_cooldown
-		$ShapeCast2D.target_position = Vector2(direction * dash_max_distance, 0)
-		$ShapeCast2D.force_shapecast_update()
+	is_dashing = true
+	dash_direction = direction
+	if dash_direction == 0:
+		dash_direction = -1 if $player_animation.flip_h else 1
+	dash_timer = dash_cooldown
+	$ShapeCast2D.target_position = Vector2(direction * dash_max_distance, 0)
+	$ShapeCast2D.force_shapecast_update()
 
+	
+	var target_position: Vector2
+	if $ShapeCast2D.is_colliding():
+		var safe_fraction = $ShapeCast2D.get_closest_collision_safe_fraction()
+		target_position = global_position + Vector2(direction * dash_max_distance * safe_fraction, 0)
+	else:
+	# Path is completely clear
+		target_position = global_position + Vector2(direction * dash_max_distance, 0)
 		
-		var target_position: Vector2
-		if $ShapeCast2D.is_colliding():
-			var safe_fraction = $ShapeCast2D.get_closest_collision_safe_fraction()
-			target_position = global_position + Vector2(direction * dash_max_distance * safe_fraction, 0)
-		else:
-		# Path is completely clear
-			target_position = global_position + Vector2(direction * dash_max_distance, 0)
-			
-		set_collision_layer_value(1, false) # Adjust to your collision mask
-		$player_animation.play("dash")
-		
-		var tween = create_tween()
-		var actual_distance = global_position.distance_to(target_position)
-		tween.tween_property(self, "global_position", target_position, actual_distance / dash_speed)\
-			.set_trans(Tween.TRANS_SINE)\
-			.set_ease(Tween.EASE_OUT)
-		tween.tween_callback(end_dash)
+	set_collision_layer_value(1, false) # Adjust to your collision mask
+	$player_animation.play("dash")
+	
+	var tween = create_tween()
+	var actual_distance = global_position.distance_to(target_position)
+	tween.tween_property(self, "global_position", target_position, actual_distance / dash_speed)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+	tween.tween_callback(end_dash)
 	
 func end_dash() -> void:
 	# Ends dash and restores collision
@@ -198,10 +200,14 @@ func end_dash() -> void:
 	
 func player_attack():
 	# Plays sword attack
+	if is_dashing:
+		return
 	basicattack = true
 	$player_animation.play("slash")
 	$attackarea/CollisionShape2D.disabled = false
 	await $player_animation.animation_finished
+	basicattack = false
+	$attackarea/CollisionShape2D.disabled = true
 	
 func take_damage(amount: int):
 	# Damages player

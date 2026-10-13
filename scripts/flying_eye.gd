@@ -100,6 +100,7 @@ func die():
 		return
 	dying = true
 	dead = true
+	global.enemies_defeated += 1
 	enemy_died.emit()
 	if randf() < 0.1:
 		var potion = health_potion_scene.instantiate()

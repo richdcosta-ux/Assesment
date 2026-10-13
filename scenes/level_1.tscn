@@ -11,7 +11,9 @@
 [ext_resource type="FontFile" uid="uid://b3gvdco63k1aa" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Black.ttf" id="11_2aecg"]
 [ext_resource type="PackedScene" uid="uid://cyl0qfynnef0w" path="res://prefabs/goblin.tscn" id="11_2os1m"]
 [ext_resource type="Script" uid="uid://csm0k8vsytbsf" path="res://scripts/wavemanager.gd" id="12_7gny6"]
+[ext_resource type="FontFile" uid="uid://4tgoho7x2hxl" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="12_x2xxo"]
 [ext_resource type="Script" uid="uid://c0jme00yfg7e2" path="res://scripts/wavetrigger.gd" id="13_2aecg"]
+[ext_resource type="Script" uid="uid://cisvp78w0uetq" path="res://scripts/gold.gd" id="13_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://u0cw4fai13eu" path="res://prefabs/portal.tscn" id="15_6dial"]
 [ext_resource type="PackedScene" uid="uid://dj63nmwshjahm" path="res://prefabs/pause_menu.tscn" id="16_1s4pk"]
 [ext_resource type="Texture2D" uid="uid://dt8fjeofjiyy6" path="res://assets/mossy area/Mossy - Hanging Plants.png" id="16_7nomh"]
@@ -361,7 +363,7 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(2.4065375e-07, 0.4638971, 0.19752604, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2os1m"]
-size = Vector2(212, 317)
+size = Vector2(757, 317)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nomh"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
@@ -501,6 +503,16 @@ theme_override_fonts/font = ExtResource("11_2aecg")
 theme_override_font_sizes/font_size = 40
 text = "Wave: 1"
 
+[node name="gold" type="Label" parent="CanvasLayer" unique_id=2014785529]
+offset_left = 43.0
+offset_top = 64.0
+offset_right = 97.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("12_x2xxo")
+theme_override_font_sizes/font_size = 20
+text = "Gold: 0"
+script = ExtResource("13_2cbcq")
+
 [node name="wavemanager" type="Node2D" parent="." unique_id=421496575]
 position = Vector2(4500, -48)
 script = ExtResource("12_7gny6")
@@ -520,7 +532,7 @@ position = Vector2(4611, 17)
 script = ExtResource("13_2aecg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wavetrigger" unique_id=920186324]
-position = Vector2(-197, 492)
+position = Vector2(75.5, 492)
 shape = SubResource("RectangleShape2D_2os1m")
 
 [node name="portal" parent="." unique_id=253680915 instance=ExtResource("15_6dial")]
