@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://db604qwu0wstp" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://daopeyx5dm7uq" path="res://assets/Free Pixel Art Forest/Free Pixel Art Forest/Preview/Background.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://upiebnbg1mci" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Regular.ttf" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://b3gvdco63k1aa" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Black.ttf" id="3_wu84c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -54,12 +55,15 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.55359787, 1.347661e-06, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_wu84c")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "Start
+text = "⚔️Start
 "
 
 [node name="tutorial" type="Button" parent="VBoxContainer" unique_id=672863737]
@@ -67,12 +71,15 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.55359787, 1.347661e-06, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "tutorial
+text = "	📜tutorial
 "
 
 [node name="quit" type="Button" parent="VBoxContainer" unique_id=1006838528]
@@ -80,12 +87,15 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.66878915, 0, 0.042927198, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "Quit
+text = "➜]Quit
 "
 
 [node name="Label" type="Label" parent="." unique_id=1566043708]
@@ -115,6 +125,18 @@ offset_top = 605.0
 offset_right = 68.0
 offset_bottom = 628.0
 text = "v 1.0"
+
+[node name="Label3" type="Label" parent="." unique_id=682457208]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 266.0
+offset_right = 800.0
+offset_bottom = 487.0
+theme_override_font_sizes/font_size = 38
+text = "🔒 
+
+
+"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]

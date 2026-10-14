@@ -62,6 +62,12 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16ggd"]
 bg_color = Color(0.6466338, 0.6036122, 0.40090463, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tibe6"]
+bg_color = Color(0.73333335, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vfpg"]
+bg_color = Color(0, 0.49438715, 0.026233857, 1)
+
 [node name="iteminfo" type="CanvasLayer" unique_id=1442841989]
 process_mode = 3
 offset = Vector2(0, -600)
@@ -132,6 +138,7 @@ offset_right = 540.0
 offset_bottom = 493.0
 theme_override_fonts/font = ExtResource("3_fv5bg")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_tibe6")
 text = "Close"
 
 [node name="use" type="Button" parent="." unique_id=1946051440]
@@ -142,6 +149,7 @@ offset_right = 666.0
 offset_bottom = 493.0
 theme_override_fonts/font = ExtResource("3_fv5bg")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_0vfpg")
 text = "Use"
 
 [node name="icon" type="Sprite2D" parent="." unique_id=986563450]

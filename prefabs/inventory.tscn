@@ -57,6 +57,9 @@ _data = {
 &"transout": SubResource("Animation_eu8to")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1025m"]
+bg_color = Color(0.73333335, 0, 0, 1)
+
 [node name="inventory" type="CanvasLayer" unique_id=1442841989]
 process_mode = 3
 offset = Vector2(0, -600)
@@ -87,6 +90,7 @@ offset_right = 945.0
 offset_bottom = 193.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_1025m")
 text = "Close"
 
 [node name="title" type="Label" parent="." unique_id=1188257934]

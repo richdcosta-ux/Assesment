@@ -10,4 +10,8 @@ var checkpoint_scene: String = ""
 func reset_game():
 	checkpoint_position = Vector2(50, 700)
 	checkpoint_scene = ""
+	current_key = 1
+	collected_keys.clear()
 var should_respawn := false
+var current_key = 1
+var collected_keys = []

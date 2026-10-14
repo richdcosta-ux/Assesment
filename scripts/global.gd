@@ -1,6 +1,7 @@
 extends Node
 var shop_open = false
 var gold = 10
+var tutorial_completed = false
 var enemies_defeated = 0
 var item = {
 	0: {

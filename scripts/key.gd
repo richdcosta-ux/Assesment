@@ -1,10 +1,11 @@
 extends Area2D
 @onready var tutorial: Node2D = $"../.."
-
-
+@export var key_number = 1
+@export var key_id = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if key_id in globalvariables.collected_keys:
+		queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,9 +14,15 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		save_checkpoint(body)
-		queue_free()
+	if !body.is_in_group("player"):
+		return
+	if key_number != globalvariables.current_key:
+		return
+	if key_id not in globalvariables.collected_keys:
+		globalvariables.collected_keys.append(key_id)
+	save_checkpoint(body)
+	globalvariables.current_key += 1
+	queue_free()
 		
 func save_checkpoint(player):
 	#tutorial.player_spawn_x = global_position.x

@@ -107,7 +107,7 @@ offset_left = -35.0
 offset_top = -51.0
 offset_right = 51.0
 offset_bottom = -28.0
-text = "[E] To Shop"
+text = "🅴 To Shop"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

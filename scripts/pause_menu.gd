@@ -24,3 +24,11 @@ func _on_quit_button_pressed() -> void:
 func _on_button_pressed() -> void:
 	get_tree().paused = true
 	visible = true
+
+
+func _on_controls_pressed() -> void:
+	$Panel/controlpanel.visible = true
+
+
+func _on_back_pressed() -> void:
+	$Panel/controlpanel.visible = false

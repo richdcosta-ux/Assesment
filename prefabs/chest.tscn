@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i85f32vt0smc" path="res://assets/Animated Chests/Chests.png" id="1_7lya3"]
 [ext_resource type="Script" uid="uid://blqxf88ryukh2" path="res://scripts/chest.gd" id="1_c347f"]
+[ext_resource type="PackedScene" uid="uid://c4ca0ig0uumdo" path="res://prefabs/healthpotion.tscn" id="2_5xlvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4xkd"]
 size = Vector2(64, 29)
@@ -163,6 +164,7 @@ animations = [{
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_c347f")
+health_potion_scene = ExtResource("2_5xlvm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670808308]
 position = Vector2(-23, 5.5)
@@ -173,3 +175,8 @@ texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_bfgp1")
 animation = &"open"
+
+[node name="rewardlabel" type="Label" parent="." unique_id=1136579051]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

@@ -194,6 +194,7 @@ height = 46.0
 
 [node name="next_level_portal" type="Area2D" unique_id=269172372]
 script = ExtResource("1_f720p")
+next_scene = "res://main_menu.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1042995454]
 sprite_frames = SubResource("SpriteFrames_158w6")

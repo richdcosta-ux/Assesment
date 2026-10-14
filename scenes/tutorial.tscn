@@ -593,6 +593,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr1vm"]
 size = Vector2(42, 182)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl2xa"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikfo1"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -685,6 +687,7 @@ scale = Vector2(0.2, 0.2)
 [node name="next_level_portal" parent="." unique_id=727265075 instance=ExtResource("9_nlqja")]
 position = Vector2(6728, 352)
 next_scene = "res://scenes/main_menu.tscn"
+completes_tutorial = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="next_level_portal" unique_id=1129290478]
 position = Vector2(1, 0)
@@ -699,7 +702,6 @@ sprite_frames = SubResource("SpriteFrames_sbw1o")
 autoplay = "default"
 
 [node name="chest" parent="." unique_id=1168262955 instance=ExtResource("12_tbcdj")]
-z_index = -1
 position = Vector2(3612, 592)
 
 [node name="shop_npc" parent="." unique_id=1408308666 instance=ExtResource("13_ej4tf")]
@@ -724,8 +726,7 @@ offset_top = 419.0
 offset_right = 713.0
 offset_bottom = 595.0
 text = "                            Wellcome
-Press \"A\" or \"D\" OR \"Left & Right Arrow\"
-                     For Movement"
+Press 🅰 or 🅳 OR [←] or [→] For Movement"
 label_settings = SubResource("LabelSettings_6yjpi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animated_text/Label" unique_id=870303650]
@@ -743,7 +744,7 @@ offset_left = 730.0
 offset_top = 603.0
 offset_right = 1070.0
 offset_bottom = 706.0
-text = "Press \"Space\" to Jump
+text = "Press [Space] to Jump
 "
 label_settings = SubResource("LabelSettings_6yjpi")
 
@@ -761,7 +762,7 @@ offset_left = 1400.0
 offset_top = 469.0
 offset_right = 2092.0
 offset_bottom = 645.0
-text = "Hold \"Shift\" to Sprint"
+text = "Hold [SHIFT] to Sprint"
 label_settings = SubResource("LabelSettings_6yjpi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animated_text/Label3" unique_id=257047852]
@@ -778,7 +779,7 @@ offset_left = 2019.0
 offset_top = 459.0
 offset_right = 2711.0
 offset_bottom = 635.0
-text = "Hold \"Space\" to High Jump
+text = "Hold [  Space  ] to High Jump
 "
 label_settings = SubResource("LabelSettings_6yjpi")
 visible_characters = 0
@@ -798,7 +799,7 @@ offset_left = 3163.0
 offset_top = 449.0
 offset_right = 3855.0
 offset_bottom = 625.0
-text = "Press \"Q\" to Dash
+text = "Press [Q] to Dash
 
 "
 label_settings = SubResource("LabelSettings_6yjpi")
@@ -818,7 +819,7 @@ offset_left = 4018.0
 offset_top = 540.0
 offset_right = 4710.0
 offset_bottom = 716.0
-text = "Press \"2x Space\" for Double Jump
+text = "Press 2x [[Space]] for Double Jump
 
 "
 label_settings = SubResource("LabelSettings_6yjpi")
@@ -837,7 +838,7 @@ offset_left = 4294.0
 offset_top = 254.0
 offset_right = 4627.0
 offset_bottom = 415.0
-text = "[F] To Open Inventory
+text = "🅵 To Open Inventory
 
 "
 label_settings = SubResource("LabelSettings_6yjpi")
@@ -857,7 +858,7 @@ offset_left = 5086.0
 offset_top = 459.0
 offset_right = 5778.0
 offset_bottom = 635.0
-text = "\"M1\" or  \"Left Mouse Click\" to Attack
+text = "[M1] or [Left Click] to Attack
 
 "
 label_settings = SubResource("LabelSettings_6yjpi")
@@ -891,7 +892,7 @@ offset_left = 6285.0
 offset_top = 260.0
 offset_right = 6818.0
 offset_bottom = 499.0
-text = "Congratulation
+text = "🏆Congratulation🏆
 
 
 "
@@ -984,27 +985,38 @@ position = Vector2(148, 738)
 
 [node name="key2" parent="keys" unique_id=742494241 instance=ExtResource("17_vrdqu")]
 position = Vector2(730, 740)
+key_number = 2
+key_id = 2
 
 [node name="key3" parent="keys" unique_id=1547697769 instance=ExtResource("17_vrdqu")]
 position = Vector2(1400, 607)
+key_number = 3
+key_id = 3
 
 [node name="key4" parent="keys" unique_id=853812070 instance=ExtResource("17_vrdqu")]
 position = Vector2(2019, 614)
+key_number = 4
+key_id = 4
 
 [node name="key5" parent="keys" unique_id=961324918 instance=ExtResource("17_vrdqu")]
 position = Vector2(3267, 582)
+key_number = 5
+key_id = 5
 
 [node name="key6" parent="keys" unique_id=379140958 instance=ExtResource("17_vrdqu")]
 position = Vector2(4179, 672)
-
-[node name="key7" parent="keys" unique_id=958308745 instance=ExtResource("17_vrdqu")]
-position = Vector2(5194, 638)
+key_number = 6
+key_id = 6
 
 [node name="key8" parent="keys" unique_id=98770341 instance=ExtResource("17_vrdqu")]
 position = Vector2(4396, 363)
+key_number = 7
+key_id = 7
 
-[node name="PauseMenu" parent="." unique_id=1350059148 instance=ExtResource("18_cmspm")]
-visible = false
+[node name="key7" parent="keys" unique_id=958308745 instance=ExtResource("17_vrdqu")]
+position = Vector2(5194, 638)
+key_number = 8
+key_id = 8
 
 [node name="pause_button" type="CanvasLayer" parent="." unique_id=1786666574]
 
@@ -1014,7 +1026,8 @@ offset_top = 32.0
 offset_right = 1122.0
 offset_bottom = 82.0
 theme_override_font_sizes/font_size = 30
-text = "||"
+theme_override_styles/hover = SubResource("StyleBoxFlat_bl2xa")
+text = "❚❚"
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1417472025]
@@ -1035,5 +1048,8 @@ position = Vector2(-20, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barrier" unique_id=1762305020]
 position = Vector2(-37, 443)
 shape = SubResource("RectangleShape2D_ikfo1")
+
+[node name="PauseMenu" parent="." unique_id=1350059148 instance=ExtResource("18_cmspm")]
+visible = false
 
 [connection signal="pressed" from="pause_button/Button" to="PauseMenu" method="_on_button_pressed"]

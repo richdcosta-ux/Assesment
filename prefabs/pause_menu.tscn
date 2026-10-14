@@ -3,6 +3,24 @@
 [ext_resource type="Script" uid="uid://bvypvh8ui0vgf" path="res://scripts/pause_menu.gd" id="1_hf53u"]
 [ext_resource type="FontFile" uid="uid://4tgoho7x2hxl" path="res://assets/Font/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="2_iyb4f"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em4v0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntkjb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyb4f"]
+bg_color = Color(0.6, 0.6, 0.6, 0.35686275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atv5q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpmee"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvkqb"]
+bg_color = Color(0.326184, 0.326184, 0.32618386, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb5o4"]
+bg_color = Color(0.754809, 0.009696903, 2.8878452e-07, 1)
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=1350059148]
 process_mode = 3
 script = ExtResource("1_hf53u")
@@ -15,6 +33,20 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Controls" type="Button" parent="Panel" unique_id=383294810]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 271.0
+offset_right = 915.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_iyb4f")
+theme_override_font_sizes/font_size = 83
+theme_override_styles/normal = SubResource("StyleBoxFlat_em4v0")
+text = "🎮Controls
+"
+
 [node name="ResumeButton" type="Button" parent="Panel" unique_id=1091775950]
 layout_mode = 1
 anchors_preset = 8
@@ -22,17 +54,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -122.0
-offset_right = 221.0
-offset_bottom = -14.0
+offset_left = -279.0
+offset_top = -193.0
+offset_right = 336.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0.12921697, 0.7244809, 1.92523e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_iyb4f")
 theme_override_font_sizes/font_size = 73
-text = "Continue"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ntkjb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iyb4f")
+text = "▶ Continue"
 
 [node name="QuitButton" type="Button" parent="Panel" unique_id=1699605874]
 layout_mode = 1
@@ -41,21 +76,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = 24.0
-offset_right = 240.0
-offset_bottom = 132.0
+offset_left = -282.5
+offset_top = 97.0
+offset_right = 336.0
+offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.66878915, 0, 0.042927198, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_iyb4f")
 theme_override_font_sizes/font_size = 70
-text = "Main Menu"
+theme_override_styles/normal = SubResource("StyleBoxFlat_atv5q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iyb4f")
+text = "➜] Main Menu"
 
+[node name="controlpanel" type="Panel" parent="Panel" unique_id=2086835952]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cpmee")
+
+[node name="Label" type="Label" parent="Panel/controlpanel" unique_id=1323033045]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 38.0
+offset_right = 967.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("2_iyb4f")
+theme_override_font_sizes/font_size = 26
+text = "	              CONTROLS
+
+[A] [D]                    Move
+
+[Space]                  Jump
+
+[Shift]                 Sprint
+
+Left Click         Attack
+
+[ E ]                        Interact
+
+[ F ]                        Inventory
+
+ESC                        Pause"
+
+[node name="back" type="Button" parent="Panel/controlpanel" unique_id=54212551]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 16.0
+offset_right = 1131.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_bvkqb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yb5o4")
+text = "Back"
+
+[connection signal="pressed" from="Panel/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Panel/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/controlpanel/back" to="." method="_on_back_pressed"]
