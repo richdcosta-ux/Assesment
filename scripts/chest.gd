@@ -14,7 +14,7 @@ func interact():
 	var reward = randi_range(0, 1)
 	if reward == 0:
 		global.gold += 5
-		show_reward("+5🪙 Gold")
+		show_reward("+5 Gold")
 	else:
 		var potion = health_potion_scene.instantiate()
 		potion.global_position = global_position + Vector2(0, -20)

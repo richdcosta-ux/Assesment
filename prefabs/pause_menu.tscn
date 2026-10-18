@@ -44,7 +44,7 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_iyb4f")
 theme_override_font_sizes/font_size = 83
 theme_override_styles/normal = SubResource("StyleBoxFlat_em4v0")
-text = "🎮Controls
+text = "Controls
 "
 
 [node name="ResumeButton" type="Button" parent="Panel" unique_id=1091775950]
@@ -67,7 +67,7 @@ theme_override_fonts/font = ExtResource("2_iyb4f")
 theme_override_font_sizes/font_size = 73
 theme_override_styles/normal = SubResource("StyleBoxFlat_ntkjb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iyb4f")
-text = "▶ Continue"
+text = " Continue"
 
 [node name="QuitButton" type="Button" parent="Panel" unique_id=1699605874]
 layout_mode = 1
@@ -88,7 +88,7 @@ theme_override_fonts/font = ExtResource("2_iyb4f")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_atv5q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iyb4f")
-text = "➜] Main Menu"
+text = " Main Menu"
 
 [node name="controlpanel" type="Panel" parent="Panel" unique_id=2086835952]
 visible = false

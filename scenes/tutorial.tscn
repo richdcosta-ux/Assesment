@@ -726,7 +726,7 @@ offset_top = 419.0
 offset_right = 713.0
 offset_bottom = 595.0
 text = "                            Wellcome
-Press 🅰 or 🅳 OR [←] or [→] For Movement"
+Press [A] or [D] OR [left] or [right] For Movement"
 label_settings = SubResource("LabelSettings_6yjpi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animated_text/Label" unique_id=870303650]
@@ -838,7 +838,7 @@ offset_left = 4294.0
 offset_top = 254.0
 offset_right = 4627.0
 offset_bottom = 415.0
-text = "🅵 To Open Inventory
+text = "[F] To Open Inventory
 
 "
 label_settings = SubResource("LabelSettings_6yjpi")
@@ -892,7 +892,7 @@ offset_left = 6285.0
 offset_top = 260.0
 offset_right = 6818.0
 offset_bottom = 499.0
-text = "🏆Congratulation🏆
+text = "Congratulation
 
 
 "
@@ -1027,7 +1027,7 @@ offset_right = 1122.0
 offset_bottom = 82.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_bl2xa")
-text = "❚❚"
+text = "||"
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1417472025]

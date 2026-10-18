@@ -912,7 +912,7 @@ offset_right = 97.0
 offset_bottom = 87.0
 theme_override_fonts/font = ExtResource("8_8a5vo")
 theme_override_font_sizes/font_size = 20
-text = "🪙 Gold: 0"
+text = " Gold: 0"
 script = ExtResource("9_3s3h6")
 
 [node name="animated_plants" type="Node" parent="." unique_id=251432118]

@@ -63,7 +63,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "⚔️Start
+text = "Start
 "
 
 [node name="tutorial" type="Button" parent="VBoxContainer" unique_id=672863737]
@@ -79,7 +79,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "	📜tutorial
+text = "tutorial
 "
 
 [node name="quit" type="Button" parent="VBoxContainer" unique_id=1006838528]
@@ -95,7 +95,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
-text = "➜]Quit
+text = "Quit
 "
 
 [node name="Label" type="Label" parent="." unique_id=1566043708]
@@ -124,16 +124,16 @@ offset_left = 28.0
 offset_top = 605.0
 offset_right = 68.0
 offset_bottom = 628.0
-text = "v 1.0"
+text = "v 2.0"
 
 [node name="Label3" type="Label" parent="." unique_id=682457208]
 layout_mode = 0
-offset_left = 655.0
-offset_top = 266.0
-offset_right = 800.0
-offset_bottom = 487.0
+offset_left = 731.0
+offset_top = 270.0
+offset_right = 886.0
+offset_bottom = 491.0
 theme_override_font_sizes/font_size = 38
-text = "🔒 
+text = "[Locked]
 
 
 "

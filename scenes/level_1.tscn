@@ -513,7 +513,7 @@ offset_right = 97.0
 offset_bottom = 87.0
 theme_override_fonts/font = ExtResource("12_x2xxo")
 theme_override_font_sizes/font_size = 20
-text = "🪙 Gold: 0"
+text = " Gold: 0"
 script = ExtResource("13_2cbcq")
 
 [node name="wavemanager" type="Node2D" parent="." unique_id=421496575]
@@ -552,7 +552,7 @@ offset_bottom = 82.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nomh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x2xxo")
-text = "❚❚"
+text = "||"
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." unique_id=1350059148 instance=ExtResource("16_1s4pk")]
